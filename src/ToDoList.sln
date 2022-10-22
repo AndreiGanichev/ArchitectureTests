@@ -38,6 +38,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{47C59209-98F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Api", "Api\ToDoList.Api\ToDoList.Api.csproj", "{2CC1F10F-62DA-4037-8476-F6FD22A2D868}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.BuildingBlocks", "ToDoList.BuildingBlocks\ToDoList.BuildingBlocks.csproj", "{DA36576E-4577-46A3-A39D-9B7B8B33C545}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,5 +125,9 @@ Global
 		{2CC1F10F-62DA-4037-8476-F6FD22A2D868}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CC1F10F-62DA-4037-8476-F6FD22A2D868}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CC1F10F-62DA-4037-8476-F6FD22A2D868}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA36576E-4577-46A3-A39D-9B7B8B33C545}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA36576E-4577-46A3-A39D-9B7B8B33C545}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA36576E-4577-46A3-A39D-9B7B8B33C545}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA36576E-4577-46A3-A39D-9B7B8B33C545}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
