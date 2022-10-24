@@ -6,39 +6,39 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tasks", "Tasks", "{6042B4F0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notifications", "Notifications", "{ADE58924-5868-4A0D-842A-11B41AED1C08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Tasks.Domain", "Modules\Tasks\ToDoList.Tasks.Domain\ToDoList.Tasks.Domain.csproj", "{C266F51A-1821-4976-9B60-EF9FFA487B45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Domain", "Modules\Tasks\ToDoList.Tasks.Domain\Tasks.Domain.csproj", "{C266F51A-1821-4976-9B60-EF9FFA487B45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Tasks.Application.Contracts", "Modules\Tasks\ToDoList.Tasks.Application.Contracts\ToDoList.Tasks.Application.Contracts.csproj", "{8A2C1536-0AF9-431C-8F63-9164246DC62A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Application.Contracts", "Modules\Tasks\ToDoList.Tasks.Application.Contracts\Tasks.Application.Contracts.csproj", "{8A2C1536-0AF9-431C-8F63-9164246DC62A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Tasks.Infrastructure.Database", "Modules\Tasks\ToDoList.Tasks.Infrastructure.Database\ToDoList.Tasks.Infrastructure.Database.csproj", "{D82D5883-F460-4346-9AFB-4C4B8E80D452}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Infrastructure.Database", "Modules\Tasks\ToDoList.Tasks.Infrastructure.Database\Tasks.Infrastructure.Database.csproj", "{D82D5883-F460-4346-9AFB-4C4B8E80D452}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Tasks.Infrastructure.MesageBus", "Modules\Tasks\ToDoList.Tasks.Infrastructure.MesageBus\ToDoList.Tasks.Infrastructure.MesageBus.csproj", "{4DD342E4-0A40-4551-B683-CE2683B112CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Infrastructure.MesageBus", "Modules\Tasks\ToDoList.Tasks.Infrastructure.MesageBus\Tasks.Infrastructure.MesageBus.csproj", "{4DD342E4-0A40-4551-B683-CE2683B112CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Notifications.Infrastructure.Database", "Modules\Notifications\ToDoList.Notifications.Infrastructure.Database\ToDoList.Notifications.Infrastructure.Database.csproj", "{E371DBCD-1867-4950-97F7-5EEBA37E117E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Infrastructure.Database", "Modules\Notifications\ToDoList.Notifications.Infrastructure.Database\Notifications.Infrastructure.Database.csproj", "{E371DBCD-1867-4950-97F7-5EEBA37E117E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Notifications.Infrastructure.MessageBus", "Modules\Notifications\ToDoList.Notifications.Infrastructure.MessageBus\ToDoList.Notifications.Infrastructure.MessageBus.csproj", "{1DD75041-B18D-465E-9E64-F4BC81B0A363}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Infrastructure.MessageBus", "Modules\Notifications\ToDoList.Notifications.Infrastructure.MessageBus\Notifications.Infrastructure.MessageBus.csproj", "{1DD75041-B18D-465E-9E64-F4BC81B0A363}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Notifications.Infrastructure.Telegram", "Modules\Notifications\ToDoList.Notifications.Infrastructure.Telegram\ToDoList.Notifications.Infrastructure.Telegram.csproj", "{6BF1FB9E-2A3D-4F89-BF86-2D8E152970DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Infrastructure.Telegram", "Modules\Notifications\ToDoList.Notifications.Infrastructure.Telegram\Notifications.Infrastructure.Telegram.csproj", "{6BF1FB9E-2A3D-4F89-BF86-2D8E152970DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Notifications.Domain", "Modules\Notifications\ToDoList.Notifications.Domain\ToDoList.Notifications.Domain.csproj", "{050F7E82-941F-42CB-9F0C-F05A373DCEAC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Domain", "Modules\Notifications\ToDoList.Notifications.Domain\Notifications.Domain.csproj", "{050F7E82-941F-42CB-9F0C-F05A373DCEAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Notifications.Application.Contracts", "Modules\Notifications\ToDoList.Notifications.Application.Contracts\ToDoList.Notifications.Application.Contracts.csproj", "{B93A4E20-10AC-4C8F-BDB0-81788F1C5A38}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Application.Contracts", "Modules\Notifications\ToDoList.Notifications.Application.Contracts\Notifications.Application.Contracts.csproj", "{B93A4E20-10AC-4C8F-BDB0-81788F1C5A38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Notifications.Infrastructure.Modules", "Modules\Notifications\ToDoList.Notifications.Infrastructure.Modules\ToDoList.Notifications.Infrastructure.Modules.csproj", "{5B021A10-5FE9-4502-BBDF-315295482A60}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Infrastructure.Modules", "Modules\Notifications\ToDoList.Notifications.Infrastructure.Modules\Notifications.Infrastructure.Modules.csproj", "{5B021A10-5FE9-4502-BBDF-315295482A60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Notifications.Infrastructure.Configuration", "Modules\Notifications\ToDoList.Notifications.Infrastructure.Configuration\ToDoList.Notifications.Infrastructure.Configuration.csproj", "{9EAD38A2-2EF4-4B5E-B03C-3486F3DAA51E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Infrastructure.Configuration", "Modules\Notifications\ToDoList.Notifications.Infrastructure.Configuration\Notifications.Infrastructure.Configuration.csproj", "{9EAD38A2-2EF4-4B5E-B03C-3486F3DAA51E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Notifications.Application", "Modules\Notifications\ToDoList.Notifications.Application\ToDoList.Notifications.Application.csproj", "{00C91EF1-1618-426D-80B8-C8F276D8B757}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Application", "Modules\Notifications\ToDoList.Notifications.Application\Notifications.Application.csproj", "{00C91EF1-1618-426D-80B8-C8F276D8B757}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Tasks.Application", "Modules\Tasks\ToDoList.Tasks.Application\ToDoList.Tasks.Application.csproj", "{8773529F-785A-4EFF-8540-B7050BB2C3A3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Application", "Modules\Tasks\ToDoList.Tasks.Application\Tasks.Application.csproj", "{8773529F-785A-4EFF-8540-B7050BB2C3A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Tasks.Infrastructure.Configuration", "Modules\Tasks\ToDoList.Tasks.Infrastructure.Configuration\ToDoList.Tasks.Infrastructure.Configuration.csproj", "{0853DB7D-AFE5-4FCF-8C0C-BA16D1260CBA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Infrastructure.Configuration", "Modules\Tasks\ToDoList.Tasks.Infrastructure.Configuration\Tasks.Infrastructure.Configuration.csproj", "{0853DB7D-AFE5-4FCF-8C0C-BA16D1260CBA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{47C59209-98F9-41B2-A1C3-E3CB2DDD6E25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Api", "Api\ToDoList.Api\ToDoList.Api.csproj", "{2CC1F10F-62DA-4037-8476-F6FD22A2D868}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\ToDoList.Api\Api.csproj", "{2CC1F10F-62DA-4037-8476-F6FD22A2D868}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.BuildingBlocks", "ToDoList.BuildingBlocks\ToDoList.BuildingBlocks.csproj", "{DA36576E-4577-46A3-A39D-9B7B8B33C545}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks", "ToDoList.BuildingBlocks\BuildingBlocks.csproj", "{DA36576E-4577-46A3-A39D-9B7B8B33C545}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,6 +5,9 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <RootNamespace>ToDoList.Api</RootNamespace>
+        <PackageId>Api</PackageId>
+        <AssemblyName>ToDoList.Api</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>

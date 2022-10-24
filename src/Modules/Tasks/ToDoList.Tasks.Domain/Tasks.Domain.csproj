@@ -4,10 +4,13 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>ToDoList.Tasks.Domain</RootNamespace>
+        <PackageId>Tasks.Domain</PackageId>
+        <AssemblyName>ToDoList.Tasks.Domain</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Remove="Class1.cs" />
+      <ProjectReference Include="..\..\..\ToDoList.BuildingBlocks\BuildingBlocks.csproj" />
     </ItemGroup>
 
 </Project>

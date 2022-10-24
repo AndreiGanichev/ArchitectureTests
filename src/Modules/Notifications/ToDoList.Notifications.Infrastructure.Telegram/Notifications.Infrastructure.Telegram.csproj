@@ -4,6 +4,9 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>ToDoList.Notifications.Infrastructure.Telegram</RootNamespace>
+        <PackageId>Notifications.Infrastructure.Telegram</PackageId>
+        <AssemblyName>ToDoList.Notifications.Infrastructure.Telegram</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>

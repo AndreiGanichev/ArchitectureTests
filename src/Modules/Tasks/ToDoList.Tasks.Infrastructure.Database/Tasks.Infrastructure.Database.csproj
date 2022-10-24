@@ -4,6 +4,9 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>ToDoList.Tasks.Infrastructure.Database</RootNamespace>
+        <PackageId>Tasks.Infrastructure.Database</PackageId>
+        <AssemblyName>ToDoList.Tasks.Infrastructure.Database</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
