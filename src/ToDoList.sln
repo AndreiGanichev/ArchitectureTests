@@ -40,6 +40,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\ToDoList.Api\Api
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks", "ToDoList.BuildingBlocks\BuildingBlocks.csproj", "{DA36576E-4577-46A3-A39D-9B7B8B33C545}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{72F72E13-08F1-4389-9EBB-C4DFD045CCEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTests", "Tests\ToDoList.ArchitectureTests\ArchitectureTests.csproj", "{AC1CA84B-7CA7-4A5F-81F4-6466B469FCB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,7 @@ Global
 		{8773529F-785A-4EFF-8540-B7050BB2C3A3} = {6042B4F0-8B37-4F5C-83F8-0B2D4CB0C079}
 		{0853DB7D-AFE5-4FCF-8C0C-BA16D1260CBA} = {6042B4F0-8B37-4F5C-83F8-0B2D4CB0C079}
 		{2CC1F10F-62DA-4037-8476-F6FD22A2D868} = {47C59209-98F9-41B2-A1C3-E3CB2DDD6E25}
+		{AC1CA84B-7CA7-4A5F-81F4-6466B469FCB4} = {72F72E13-08F1-4389-9EBB-C4DFD045CCEC}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C266F51A-1821-4976-9B60-EF9FFA487B45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -129,5 +134,9 @@ Global
 		{DA36576E-4577-46A3-A39D-9B7B8B33C545}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA36576E-4577-46A3-A39D-9B7B8B33C545}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA36576E-4577-46A3-A39D-9B7B8B33C545}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC1CA84B-7CA7-4A5F-81F4-6466B469FCB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC1CA84B-7CA7-4A5F-81F4-6466B469FCB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC1CA84B-7CA7-4A5F-81F4-6466B469FCB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC1CA84B-7CA7-4A5F-81F4-6466B469FCB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
