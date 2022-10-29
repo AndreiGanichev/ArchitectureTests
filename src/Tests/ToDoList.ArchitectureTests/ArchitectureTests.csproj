@@ -28,6 +28,9 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Api\ToDoList.Api\Api.csproj" />
+      <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Application.Contracts\Notifications.Application.Contracts.csproj" />
+      <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Application\Notifications.Application.Internals.csproj" />
+      <ProjectReference Include="..\..\Modules\Tasks\ToDoList.Tasks.Application\Tasks.Application.Internals.csproj" />
     </ItemGroup>
 
 </Project>

@@ -19,7 +19,7 @@ public class TasksController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> AddTask(CancellationToken cancellationToken)
     {
-        var command = new AddTaskCommand();
+        var command = new AddTaskCommand("a task");
         await _mediator.Send(command, cancellationToken);
         return Ok();
     }
