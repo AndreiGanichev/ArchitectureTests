@@ -28,9 +28,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Infrastructur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Infrastructure.Configuration", "Modules\Notifications\ToDoList.Notifications.Infrastructure.Configuration\Notifications.Infrastructure.Configuration.csproj", "{9EAD38A2-2EF4-4B5E-B03C-3486F3DAA51E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Application", "Modules\Notifications\ToDoList.Notifications.Application\Notifications.Application.csproj", "{00C91EF1-1618-426D-80B8-C8F276D8B757}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Application.Internals", "Modules\Notifications\ToDoList.Notifications.Application\Notifications.Application.Internals.csproj", "{00C91EF1-1618-426D-80B8-C8F276D8B757}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Application", "Modules\Tasks\ToDoList.Tasks.Application\Tasks.Application.csproj", "{8773529F-785A-4EFF-8540-B7050BB2C3A3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Application.Internals", "Modules\Tasks\ToDoList.Tasks.Application\Tasks.Application.Internals.csproj", "{8773529F-785A-4EFF-8540-B7050BB2C3A3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Infrastructure.Configuration", "Modules\Tasks\ToDoList.Tasks.Infrastructure.Configuration\Tasks.Infrastructure.Configuration.csproj", "{0853DB7D-AFE5-4FCF-8C0C-BA16D1260CBA}"
 EndProject

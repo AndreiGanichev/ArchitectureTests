@@ -4,8 +4,8 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>ToDoList.Tasks.Application</RootNamespace>
-        <AssemblyName>ToDoList.Tasks.Application</AssemblyName>
+        <RootNamespace>ToDoList.Notifications.Application.Internals</RootNamespace>
+        <AssemblyName>ToDoList.Notifications.Application.Internals</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>

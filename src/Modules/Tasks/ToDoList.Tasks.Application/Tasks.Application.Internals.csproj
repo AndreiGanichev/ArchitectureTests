@@ -4,8 +4,8 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>ToDoList.Tasks.Application.Contracts</RootNamespace>
-        <AssemblyName>ToDoList.Tasks.Application.Contracts</AssemblyName>
+        <RootNamespace>ToDoList.Tasks.Application.Internals</RootNamespace>
+        <AssemblyName>ToDoList.Tasks.Application.Internals</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
@@ -13,7 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="MediatR" Version="11.0.0" />
+      <ProjectReference Include="..\ToDoList.Tasks.Application.Contracts\Tasks.Application.Contracts.csproj" />
     </ItemGroup>
 
 </Project>
