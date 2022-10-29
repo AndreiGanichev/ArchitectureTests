@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Application.Contracts
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Infrastructure.Database", "Modules\Tasks\ToDoList.Tasks.Infrastructure.Database\Tasks.Infrastructure.Database.csproj", "{D82D5883-F460-4346-9AFB-4C4B8E80D452}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Infrastructure.MesageBus", "Modules\Tasks\ToDoList.Tasks.Infrastructure.MesageBus\Tasks.Infrastructure.MesageBus.csproj", "{4DD342E4-0A40-4551-B683-CE2683B112CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Infrastructure.MessageBus", "Modules\Tasks\ToDoList.Tasks.Infrastructure.MesageBus\Tasks.Infrastructure.MessageBus.csproj", "{4DD342E4-0A40-4551-B683-CE2683B112CF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Infrastructure.Database", "Modules\Notifications\ToDoList.Notifications.Infrastructure.Database\Notifications.Infrastructure.Database.csproj", "{E371DBCD-1867-4950-97F7-5EEBA37E117E}"
 EndProject

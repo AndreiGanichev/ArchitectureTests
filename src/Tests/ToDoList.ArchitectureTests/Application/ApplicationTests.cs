@@ -2,6 +2,7 @@ using System.Reflection;
 using FluentAssertions;
 using MediatR;
 using NetArchTest.Rules;
+using ToDoList.ArchitectureTests.Architecture;
 using ToDoList.Notifications.Application.Contracts;
 using ToDoList.Tasks.Application.Contracts;
 using Xunit;
@@ -13,16 +14,15 @@ public class ApplicationTests
     [Fact]
     public void Command_And_Query_Handlers_Should_Not_Be_Public()
     {
-        Types.InAssemblies(new[]
-            {
-                Assembly.Load("ToDoList.Tasks.Application.Internals"), 
-                Assembly.Load("ToDoList.Notifications.Application.Internals")
-            })
-            .That()
-            .ImplementInterface(typeof(IRequestHandler<>))
-            .ShouldNot().BePublic()
-            .GetResult()
-            .FailingTypes.Should().BeNullOrEmpty();
+        foreach (var applicationNamespace in Architecture.Architecture.Modules.NamespacesOf(Layer.Application))
+        {
+            Types.InNamespace(applicationNamespace)
+                .That()
+                .ImplementInterface(typeof(IRequestHandler<>))
+                .ShouldNot().BePublic()
+                .GetResult()
+                .FailingTypes.Should().BeNullOrEmpty();
+        }
     }
 
     [Fact]

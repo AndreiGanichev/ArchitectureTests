@@ -4,9 +4,9 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>ToDoList.Tasks.Infrastructure.MesageBus</RootNamespace>
-        <PackageId>Tasks.Infrastructure.MesageBus</PackageId>
-        <AssemblyName>ToDoList.Tasks.Infrastructure.MesageBus</AssemblyName>
+        <RootNamespace>ToDoList.Tasks.Infrastructure.MessageBus</RootNamespace>
+        <PackageId>Tasks.Infrastructure.MessageBus</PackageId>
+        <AssemblyName>ToDoList.Tasks.Infrastructure.MessageBus</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
