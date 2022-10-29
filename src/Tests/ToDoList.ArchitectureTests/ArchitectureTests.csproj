@@ -30,7 +30,10 @@
       <ProjectReference Include="..\..\Api\ToDoList.Api\Api.csproj" />
       <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Application.Contracts\Notifications.Application.Contracts.csproj" />
       <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Application\Notifications.Application.Internals.csproj" />
+      <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Domain\Notifications.Domain.csproj" />
       <ProjectReference Include="..\..\Modules\Tasks\ToDoList.Tasks.Application\Tasks.Application.Internals.csproj" />
+      <ProjectReference Include="..\..\Modules\Tasks\ToDoList.Tasks.Domain\Tasks.Domain.csproj" />
+      <ProjectReference Include="..\..\ToDoList.BuildingBlocks\BuildingBlocks.csproj" />
     </ItemGroup>
 
 </Project>
