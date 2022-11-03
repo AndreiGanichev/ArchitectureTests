@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+
+        <IsPackable>false</IsPackable>
+
+        <AssemblyName>ArchTests.ArchUnitNET</AssemblyName>
+
+        <RootNamespace>ArchTests.ArchUnitNET</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FluentAssertions" Version="6.8.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+        <PackageReference Include="TngTech.ArchUnitNET.xUnit" Version="0.10.4" />
+        <PackageReference Include="xunit" Version="2.4.1" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="coverlet.collector" Version="3.1.0">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Application.Contracts\Notifications.Application.Contracts.csproj" />
+      <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Application\Notifications.Application.Internals.csproj" />
+      <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Domain\Notifications.Domain.csproj" />
+      <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Infrastructure.Configuration\Notifications.Infrastructure.Configuration.csproj" />
+      <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Infrastructure.Database\Notifications.Infrastructure.Database.csproj" />
+      <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Infrastructure.MessageBus\Notifications.Infrastructure.MessageBus.csproj" />
+      <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Infrastructure.Modules\Notifications.Infrastructure.Modules.csproj" />
+      <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Infrastructure.Telegram\Notifications.Infrastructure.Telegram.csproj" />
+      <ProjectReference Include="..\..\Modules\Tasks\ToDoList.Tasks.Application.Contracts\Tasks.Application.Contracts.csproj" />
+      <ProjectReference Include="..\..\Modules\Tasks\ToDoList.Tasks.Application\Tasks.Application.Internals.csproj" />
+      <ProjectReference Include="..\..\Modules\Tasks\ToDoList.Tasks.Domain\Tasks.Domain.csproj" />
+      <ProjectReference Include="..\..\Modules\Tasks\ToDoList.Tasks.Infrastructure.Configuration\Tasks.Infrastructure.Configuration.csproj" />
+      <ProjectReference Include="..\..\Modules\Tasks\ToDoList.Tasks.Infrastructure.Database\Tasks.Infrastructure.Database.csproj" />
+      <ProjectReference Include="..\..\Modules\Tasks\ToDoList.Tasks.Infrastructure.MesageBus\Tasks.Infrastructure.MessageBus.csproj" />
+      <ProjectReference Include="..\ToDoList.ArchitectureTests\ArchitectureTests.csproj" />
+    </ItemGroup>
+
+</Project>
