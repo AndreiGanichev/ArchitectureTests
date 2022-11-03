@@ -6,33 +6,45 @@ namespace ToDoList.ArchitectureTests.Modules;
 
 public class LayersTests
 {
-    [Fact]
-    public void DomainLayer_DoesNotHaveDependency_ToApplicationLayer()
+    [Theory]
+    [ClassData(typeof(ModuleList))]
+    public void DomainLayer_DoesNotHaveDependency_ToApplicationLayer(string module)
     {
-        Types.InNamespace("ToDoList.Tasks.Domain")
-            .ShouldNot()
-            .HaveDependencyOnAny("ToDoList.Tasks.Application")
-            .GetResult()
-            .IsSuccessful.Should().BeTrue();
+        foreach (var domain in ArchitectureExplorer.Modules.DomainOf(module))
+        {
+            Types.InNamespace(domain)
+                .ShouldNot()
+                .HaveDependencyOnAny(ArchitectureExplorer.Modules.ApplicationOf(module))
+                .GetResult()
+                .FailingTypes.Should().BeEmpty();
+        }
     }
 
-    [Fact]
-    public void DomainLayer_DoesNotHaveDependency_ToInfrastructureLayer()
+    [Theory]
+    [ClassData(typeof(ModuleList))]
+    public void DomainLayer_DoesNotHaveDependency_ToInfrastructureLayer(string module)
     {
-        Types.InNamespace("ToDoList.Tasks.Domain")
-            .ShouldNot()
-            .HaveDependencyOn("ToDoList.Tasks.Infrastructure")
-            .GetResult()
-            .IsSuccessful.Should().BeTrue();
+        foreach (var domain in ArchitectureExplorer.Modules.DomainOf(module))
+        {
+            Types.InNamespace(domain)
+                .ShouldNot()
+                .HaveDependencyOnAny(ArchitectureExplorer.Modules.InfrastructureOf(module))
+                .GetResult()
+                .FailingTypes.Should().BeEmpty();
+        }
     }
 
-    [Fact]
-    public void ApplicationLayer_DoesNotHaveDependency_ToInfrastructureLayer()
+    [Theory]
+    [ClassData(typeof(ModuleList))]
+    public void ApplicationLayer_DoesNotHaveDependency_ToInfrastructureLayer(string module)
     {
-        Types.InNamespace("ToDoList.Tasks.Application")
-            .ShouldNot()
-            .HaveDependencyOn("ToDoList.Tasks.Infrastructure")
-            .GetResult()
-            .IsSuccessful.Should().BeTrue();
+        foreach (var application in ArchitectureExplorer.Modules.ApplicationOf(module))
+        {
+            Types.InNamespace(application)
+                .ShouldNot()
+                .HaveDependencyOnAny(ArchitectureExplorer.Modules.InfrastructureOf(module))
+                .GetResult()
+                .IsSuccessful.Should().BeTrue();
+        }
     }
 }

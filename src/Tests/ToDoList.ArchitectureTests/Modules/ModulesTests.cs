@@ -1,4 +1,3 @@
-using System.Reflection;
 using FluentAssertions;
 using NetArchTest.Rules;
 using Xunit;
@@ -7,50 +6,58 @@ namespace ToDoList.ArchitectureTests.Modules;
 
 public class ModulesTests
 {
-    [Fact]
-    public void DomainLayer_DoesNotHaveDependency_ToOtherModules()
+    [Theory]
+    [ClassData(typeof(ModuleList))]
+    public void DomainLayer_DoesNotHaveDependency_ToOtherModules(string module)
     {
-        // for each module
-        Types.InNamespace("ToDoList.Tasks.Domain")
-            .ShouldNot()
-            .HaveDependencyOnAny("ToDoList.Notifications")
-            .GetResult()
-            .IsSuccessful.Should().BeTrue();
-    }
-    
-    [Fact]
-    public void ApplicationLayer_DoesNotHaveDependency_ToOtherModules()
-    {
-        // for each module
-        Types.InNamespace("ToDoList.Tasks.Application")
-            .ShouldNot()
-            .HaveDependencyOnAny("ToDoList.Notifications")
-            .GetResult()
-            .IsSuccessful.Should().BeTrue();
-    }
-    
-    [Fact]
-    public void InfrastructureLayer_Except_InfrastructureModules_DoesNotHaveDependency_ToOtherModules()
-    {
-        // for each module
-        var types = Types.InNamespace("ToDoList.Notifications.Infrastructure")
-            .ShouldNot()
-            .HaveDependencyOn("ToDoList.Tasks")
-            .GetResult().FailingTypes;
+        var otherModules = ArchitectureExplorer.Modules.Except(module);
 
-        types?.Should().AllSatisfy(t => t.Namespace.Should().StartWith("ToDoList.Infrastructure.Modules"));
+        foreach (var domain in ArchitectureExplorer.Modules.DomainOf(module))
+        {
+            Types.InNamespace(domain)
+                .ShouldNot()
+                .HaveDependencyOnAny(otherModules)
+                .GetResult()
+                .IsSuccessful.Should().BeTrue();
+        }
+    }
+    
+    [Theory]
+    [ClassData(typeof(ModuleList))]
+    public void ApplicationLayer_DoesNotHaveDependency_ToOtherModules(string module)
+    {
+        var otherModules = ArchitectureExplorer.Modules.Except(module);
+
+        foreach (var application in ArchitectureExplorer.Modules.ApplicationOf(module))
+        {
+            Types.InNamespace(application)
+                .ShouldNot()
+                .HaveDependencyOnAny(otherModules)
+                .GetResult()
+                .IsSuccessful.Should().BeTrue();
+        }
+    }
+    
+    [Theory]
+    [ClassData(typeof(ModuleList))]
+    public void InfrastructureLayer_Except_InfrastructureModules_DoesNotHaveDependency_ToOtherModules(string module)
+    {
+        var otherModules = ArchitectureExplorer.Modules.Except(module);
+
+        foreach (var infrastructure in ArchitectureExplorer.Modules.InfrastructureOf(module))
+        {
+            Types.InNamespace(infrastructure)
+                .That()
+                .HaveDependencyOnAny(otherModules)
+                .Should()
+                .ResideInNamespace(ArchitectureExplorer.Modules.InfrastructureModulesOf(module))
+                .GetResult()
+                .IsSuccessful.Should().BeTrue();
+        }
     }
     
     [Fact]
     public void InfrastructureModules_HasDependency_ToContracts_Only()
     {
-        Types.InAssembly(Assembly.Load("ToDoList.Notifications.Infrastructure.Modules"))
-            .ShouldNot()
-            .HaveDependencyOnAny(
-                "ToDoList.Notifications.Domain",
-                "ToDoList.Notifications.Application.Internals",
-                "ToDoList.Notifications.Infrastructure")
-            .GetResult()
-            .IsSuccessful.Should().BeTrue();
     }
 }

@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using FluentAssertions;
@@ -11,81 +9,80 @@ namespace ToDoList.ArchitectureTests.Domain;
 
 public class DomainTests
 {
-    [Fact]
-    public void DomainEvent_Should_Be_Immutable()
+    [Theory]
+    [ClassData(typeof(ModuleList))]
+    public void DomainEvent_Should_Be_Immutable(string module)
     {
-        Types.InAssemblies(new[]
-            {
-                Assembly.Load("ToDoList.Tasks.Domain"),
-                Assembly.Load("ToDoList.Notifications.Domain")
-            })
-            .That()
-            .Inherit(typeof(DomainEvent))
-            .ShouldNot().BeMutable()
-            .GetResult().FailingTypes
-            .Should().BeNullOrEmpty();
+        foreach (var domain in ArchitectureExplorer.Modules.DomainOf(module))
+        {
+            Types.InNamespace(domain)
+                .That()
+                .Inherit(typeof(DomainEvent))
+                .ShouldNot().BeMutable()
+                .GetResult().FailingTypes
+                .Should().BeNullOrEmpty();
+        }
     }
 
-    [Fact]
-    public void ValueObject_Should_Be_Immutable()
+    [Theory]
+    [ClassData(typeof(ModuleList))]
+    public void ValueObject_Should_Be_Immutable(string module)
     {
-        Types.InAssemblies(new[]
-            {
-                Assembly.Load("ToDoList.Tasks.Domain"),
-                Assembly.Load("ToDoList.Notifications.Domain")
-            })
-            .That()
-            .Inherit(typeof(ValueObject))
-            .ShouldNot().BeMutable()
-            .GetResult().FailingTypes
-            .Should().BeNullOrEmpty();
+        foreach (var domain in ArchitectureExplorer.Modules.DomainOf(module))
+        {
+            Types.InNamespace(domain)
+                .That()
+                .Inherit(typeof(ValueObject))
+                .ShouldNot().BeMutable()
+                .GetResult().FailingTypes
+                .Should().BeNullOrEmpty();
+        }
     }
 
-    [Fact]
-    public void Entity_Which_Is_Not_Aggregate_Root_Cannot_Have_Public_Members()
+    [Theory]
+    [ClassData(typeof(ModuleList))]
+    public void Entity_Which_Is_Not_Aggregate_Root_Cannot_Have_Public_Methods(string module)
     {
-        var types = Types.InAssemblies(new[]
-            {
-                Assembly.Load("ToDoList.Tasks.Domain"),
-                Assembly.Load("ToDoList.Notifications.Domain")
-            })
-            .That()
-            .Inherit(typeof(Entity))
-            .And().DoNotImplementInterface(typeof(IAggregateRoot)).GetTypes();
-
-        const BindingFlags bindingFlags = BindingFlags.DeclaredOnly |
-                                          BindingFlags.Public |
+        const BindingFlags bindingFlags = BindingFlags.Public |
                                           BindingFlags.Instance |
                                           BindingFlags.Static;
 
-        var failingTypes = new List<Type>();
-        foreach (var type in types)
+        foreach (var domain in ArchitectureExplorer.Modules.DomainOf(module))
         {
-            var publicFields = type.GetFields(bindingFlags);
-            var publicProperties = type.GetProperties(bindingFlags);
-            var publicMethods = type.GetMethods(bindingFlags);
-
-            if (publicFields.Any() || publicProperties.Any() || publicMethods.Any())
-            {
-                failingTypes.Add(type);
-            }
+            Types.InNamespace(domain)
+                .That()
+                .Inherit(typeof(Entity))
+                .And().DoNotImplementInterface(typeof(IAggregateRoot))
+                .GetTypes()
+                .Where(t => t.GetMethods(bindingFlags).Any()).Should().BeEmpty();
         }
-
-        failingTypes.Should().BeEmpty();
     }
 
-    [Fact]
-    public void DomainEvent_Should_Have_DomainEventPostfix()
+    [Theory]
+    [ClassData(typeof(ModuleList))]
+    public void DomainEvent_Should_Have_DomainEventPostfix(string module)
     {
-        Types.InAssemblies(new[]
-            {
-                Assembly.Load("ToDoList.Tasks.Domain"),
-                Assembly.Load("ToDoList.Notifications.Domain")
-            })
-            .That()
-            .Inherit(typeof(DomainEvent))
-            .Should().HaveNameEndingWith("Event")
-            .GetResult().FailingTypes
-            .Should().BeNullOrEmpty();
+        foreach (var domain in ArchitectureExplorer.Modules.DomainOf(module))
+        {
+            Types.InNamespace(domain)
+                .That()
+                .Inherit(typeof(DomainEvent))
+                .Should().HaveNameEndingWith("Event")
+                .GetResult().FailingTypes
+                .Should().BeNullOrEmpty();
+        }
+    }
+
+    [Theory]
+    [ClassData(typeof(ModuleList))]
+    public void DomainModel_Should_Not_Have_NestedTypes(string module)
+    {
+        foreach (var domain in ArchitectureExplorer.Modules.DomainOf(module))
+        {
+            Types.InNamespace(domain)
+                .ShouldNot().BeNested()
+                .GetResult().FailingTypes
+                .Should().BeNullOrEmpty();
+        }
     }
 }
