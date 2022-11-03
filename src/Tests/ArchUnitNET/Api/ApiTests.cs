@@ -1,4 +1,4 @@
-namespace ArchTests.ArchUnitNET.Api;
+namespace ToDoList.ArchUnitNET.Api;
 
 public class ApiTests
 {

@@ -1,9 +1,9 @@
 using ArchUnitNET.xUnit;
 using Xunit;
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
-using static ArchTests.ArchUnitNET.ArchitectureExplorer;
+using static ToDoList.ArchUnitNET.ArchitectureExplorer;
 
-namespace ArchTests.ArchUnitNET.Api;
+namespace ToDoList.ArchUnitNET.Api;
 
 public class LayersTests
 {

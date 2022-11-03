@@ -2,7 +2,7 @@ using ArchUnitNET.Domain;
 using ArchUnitNET.Loader;
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
 
-namespace ArchTests.ArchUnitNET;
+namespace ToDoList.ArchUnitNET;
 
 public static class ArchitectureExplorer
 {
