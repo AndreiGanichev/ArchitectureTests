@@ -1,4 +1,4 @@
-namespace ToDoList.ArchitectureTests;
+namespace ToDoList.NetArchTest;
 
 public static class ArchitectureExplorer
 {

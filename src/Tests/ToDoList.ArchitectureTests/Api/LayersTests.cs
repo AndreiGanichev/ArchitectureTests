@@ -2,7 +2,7 @@ using FluentAssertions;
 using NetArchTest.Rules;
 using Xunit;
 
-namespace ToDoList.ArchitectureTests.Api;
+namespace ToDoList.NetArchTest.Api;
 
 public class LayersTests
 {

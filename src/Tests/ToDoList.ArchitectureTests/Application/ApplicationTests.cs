@@ -3,7 +3,7 @@ using MediatR;
 using NetArchTest.Rules;
 using Xunit;
 
-namespace ToDoList.ArchitectureTests.Application;
+namespace ToDoList.NetArchTest.Application;
 
 public class ApplicationTests
 {

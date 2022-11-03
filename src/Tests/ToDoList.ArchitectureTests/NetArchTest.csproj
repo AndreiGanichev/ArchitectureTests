@@ -6,9 +6,9 @@
 
         <IsPackable>false</IsPackable>
 
-        <RootNamespace>ToDoList.ArchitectureTests</RootNamespace>
+        <RootNamespace>ToDoList.NetArchTest</RootNamespace>
 
-        <AssemblyName>ToDoList.ArchitectureTests</AssemblyName>
+        <AssemblyName>ToDoList.NetArchTest</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>

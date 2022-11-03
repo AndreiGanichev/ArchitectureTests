@@ -5,7 +5,7 @@ using NetArchTest.Rules;
 using ToDoList.BuildingBlocks;
 using Xunit;
 
-namespace ToDoList.ArchitectureTests.Domain;
+namespace ToDoList.NetArchTest.Domain;
 
 public class DomainTests
 {

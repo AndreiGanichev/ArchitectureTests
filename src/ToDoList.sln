@@ -42,7 +42,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks", "ToDoList.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{72F72E13-08F1-4389-9EBB-C4DFD045CCEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTests", "Tests\ToDoList.ArchitectureTests\ArchitectureTests.csproj", "{AC1CA84B-7CA7-4A5F-81F4-6466B469FCB4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetArchTest", "Tests\ToDoList.ArchitectureTests\NetArchTest.csproj", "{AC1CA84B-7CA7-4A5F-81F4-6466B469FCB4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchTests.ArchUnitNET", "Tests\ArchTests.ArchUnitNET\ArchTests.ArchUnitNET.csproj", "{FEEB749C-1A86-492E-B7C1-937093F428B2}"
 EndProject

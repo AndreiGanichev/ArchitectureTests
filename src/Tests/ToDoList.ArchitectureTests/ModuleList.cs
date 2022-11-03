@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace ToDoList.ArchitectureTests;
+namespace ToDoList.NetArchTest;
 
 public class ModuleList : IEnumerable<object[]>, IEnumerable<string>
 {
