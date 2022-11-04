@@ -2,7 +2,7 @@ using ToDoList.BuildingBlocks;
 
 namespace ToDoList.Tasks.Domain;
 
-public class TaskCreatedEvent : DomainEvent
+public class TaskCreatedDomainEvent : DomainEvent
 {
     public Guid TaskId { get; }
     public Title Title { get; }

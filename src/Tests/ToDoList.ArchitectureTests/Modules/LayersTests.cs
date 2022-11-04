@@ -16,7 +16,7 @@ public class LayersTests
                 .ShouldNot()
                 .HaveDependencyOnAny(ArchitectureExplorer.Modules.ApplicationOf(module))
                 .GetResult()
-                .FailingTypes.Should().BeEmpty();
+                .FailingTypes.Should().BeNullOrEmpty();
         }
     }
 
@@ -30,7 +30,7 @@ public class LayersTests
                 .ShouldNot()
                 .HaveDependencyOnAny(ArchitectureExplorer.Modules.InfrastructureOf(module))
                 .GetResult()
-                .FailingTypes.Should().BeEmpty();
+                .FailingTypes.Should().BeNullOrEmpty();
         }
     }
 

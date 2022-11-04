@@ -41,7 +41,6 @@
       <ProjectReference Include="..\..\Modules\Tasks\ToDoList.Tasks.Infrastructure.Configuration\Tasks.Infrastructure.Configuration.csproj" />
       <ProjectReference Include="..\..\Modules\Tasks\ToDoList.Tasks.Infrastructure.Database\Tasks.Infrastructure.Database.csproj" />
       <ProjectReference Include="..\..\Modules\Tasks\ToDoList.Tasks.Infrastructure.MesageBus\Tasks.Infrastructure.MessageBus.csproj" />
-      <ProjectReference Include="..\ToDoList.ArchitectureTests\NetArchTest.csproj" />
     </ItemGroup>
 
 </Project>

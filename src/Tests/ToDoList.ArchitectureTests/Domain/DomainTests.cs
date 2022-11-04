@@ -62,12 +62,12 @@ public class DomainTests
     [ClassData(typeof(ModuleList))]
     public void DomainEvent_Should_Have_DomainEventPostfix(string module)
     {
-        foreach (var domain in ArchitectureExplorer.Modules.DomainOf(module))
+        foreach (var assembly in ArchitectureExplorer.Modules.DomainOf(module))
         {
-            Types.InNamespace(domain)
+            Types.InAssembly(Assembly.Load(assembly))
                 .That()
                 .Inherit(typeof(DomainEvent))
-                .Should().HaveNameEndingWith("Event")
+                .Should().HaveNameEndingWith("DomainEvent")
                 .GetResult().FailingTypes
                 .Should().BeNullOrEmpty();
         }

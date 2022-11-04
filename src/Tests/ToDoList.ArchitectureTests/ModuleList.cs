@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,19 +11,19 @@ public class ModuleList : IEnumerable<object[]>, IEnumerable<string>
     private static readonly Dictionary<string, string[]> Modules = new()
     {
         {
-            "Tasks",
+            "ToDoList.Tasks",
             new[]
             {
-                "ToDoList.Task.Domain",
-                "ToDoList.Task.Application.Internals",
-                "ToDoList.Task.Application.Contracts",
-                "ToDoList.Task.Infrastructure.Configuration",
-                "ToDoList.Task.Application.Database",
-                "ToDoList.Task.Application.MessageBus"
+                "ToDoList.Tasks.Domain",
+                "ToDoList.Tasks.Application.Internals",
+                "ToDoList.Tasks.Application.Contracts",
+                "ToDoList.Tasks.Infrastructure.Configuration",
+                "ToDoList.Tasks.Application.Database",
+                "ToDoList.Tasks.Application.MessageBus"
             }
         },
         {
-            "Notifications",
+            "ToDoList.Notifications",
             new[]
             {
                 "ToDoList.Notifications.Domain",
@@ -41,7 +42,7 @@ public class ModuleList : IEnumerable<object[]>, IEnumerable<string>
 
     public string[] DomainOf(string module)
     {
-        var pattern = $"ToDoList.{module}.Domain*";
+        var pattern = $"{module}.Domain*";
         return Modules[module].Where(ns => Regex.IsMatch(ns, pattern)).ToArray();
     }
 
@@ -50,23 +51,23 @@ public class ModuleList : IEnumerable<object[]>, IEnumerable<string>
     #region Application
 
     public string[] ApplicationOf(string module) =>
-        Modules[module].Where(ns => Regex.IsMatch(ns, $"ToDoList.{module}.Application*")).ToArray();
+        Modules[module].Where(ns => Regex.IsMatch(ns, $"{module}.Application*")).ToArray();
     
     public string ApplicationInternalsOf(string module) =>
-        Modules.SelectMany(m => m.Value).Single(ns => Regex.IsMatch(ns, $"ToDoList.{module}.Application.Internals"));
+        Modules.SelectMany(m => m.Value).Single(ns => string.Equals(ns, $"{module}.Application.Internals", StringComparison.OrdinalIgnoreCase));
     
     public string ApplicationContractsOf(string module) =>
-        Modules.SelectMany(m => m.Value).Single(ns => Regex.IsMatch(ns, $"ToDoList.{module}.Application.Contracts"));
+        Modules.SelectMany(m => m.Value).Single(ns => string.Equals(ns, $"{module}.Application.Contracts", StringComparison.OrdinalIgnoreCase));
 
     #endregion
 
     #region Infrastructure
 
     public string[] InfrastructureOf(string module) =>
-        Modules[module].Where(ns => Regex.IsMatch(ns, $"ToDoList.{module}.Infrastructure*")).ToArray();
+        Modules[module].Where(ns => Regex.IsMatch(ns, $"{module}.Infrastructure*")).ToArray();
     
-    public string InfrastructureModulesOf(string module) =>
-        Modules.SelectMany(m => m.Value).Single(ns => Regex.IsMatch(ns, $"ToDoList.{module}.Infrastructure.Contracts"));
+    public string? InfrastructureModulesOf(string module) =>
+        Modules.SelectMany(m => m.Value).SingleOrDefault(ns => string.Equals(ns, $"{module}.Infrastructure.Modules", StringComparison.OrdinalIgnoreCase));
 
     #endregion
 
@@ -76,10 +77,10 @@ public class ModuleList : IEnumerable<object[]>, IEnumerable<string>
     #region IEnumerable
 
     IEnumerator<string> IEnumerable<string>.GetEnumerator() =>
-        Modules.Select(m => $"ToDoList.{m.Key}").GetEnumerator();
+        Modules.Select(m => m.Key).GetEnumerator();
 
     public IEnumerator<object[]> GetEnumerator() => 
-        Modules.Select(m => new[]{$"ToDoList.{m.Key}"}).GetEnumerator();
+        Modules.Select(m => new[]{m.Key}).GetEnumerator();
 
     IEnumerator IEnumerable.GetEnumerator()
     {
