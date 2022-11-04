@@ -37,7 +37,10 @@ public class ApplicationTests
     [Fact]
     public void RequestHandler_Should_Have_Name_With_Postfix_Handler()
     {
-        Types().That().Are(RequestHandlers).Should().HaveNameEndingWith("Handler");
+        Types()
+            .That().Are(RequestHandlers)
+            .Should().HaveNameEndingWith("Handler")
+            .Check(ToDoListArchitecture);
     }
     
     [Fact]

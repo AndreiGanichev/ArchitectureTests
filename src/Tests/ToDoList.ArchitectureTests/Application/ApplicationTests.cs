@@ -1,3 +1,4 @@
+using System.Reflection;
 using FluentAssertions;
 using MediatR;
 using NetArchTest.Rules;
@@ -39,7 +40,7 @@ public class ApplicationTests
     [ClassData(typeof(ModuleList))]
     public void RequestHandler_Should_Have_Name_With_Postfix_Handler(string module)
     {
-        Types.InNamespace(ArchitectureExplorer.Modules.ApplicationInternalsOf(module))
+        Types.InAssembly(Assembly.Load(ArchitectureExplorer.Modules.ApplicationInternalsOf(module)))
             .That()
             .ImplementInterface(typeof(IRequestHandler<>))
             .Or()
