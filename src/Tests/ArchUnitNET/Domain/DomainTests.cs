@@ -12,39 +12,33 @@ namespace ToDoList.ArchUnitNET.Domain;
 
 public class DomainTests
 {
-    private readonly IObjectProvider<Class> DomainModel =
+    private static readonly IObjectProvider<Class> DomainModel =
         Classes().That()
-            .ResideInNamespace("ToDoList.*.Domain", useRegularExpressions: true)
-            .As("Domain model");
+            .ResideInNamespace("ToDoList.*.Domain", useRegularExpressions: true);
 
-    private readonly IObjectProvider<Class> DomainEvents =
+    private static readonly IObjectProvider<Class> DomainEvents =
         Classes().That()
             .ResideInNamespace("ToDoList.*.Domain", useRegularExpressions: true)
             .And()
-            .AreAssignableTo(typeof(DomainEvent))
-            .As("Domain events");
+            .AreAssignableTo(typeof(DomainEvent));
 
-    private readonly IObjectProvider<Class> ValueObjects =
+    private static readonly IObjectProvider<Class> ValueObjects =
         Classes().That()
             .ResideInNamespace("ToDoList.*.Domain", useRegularExpressions: true)
             .And()
-            .AreAssignableTo(typeof(ValueObject))
-            .As("Value objects");
+            .AreAssignableTo(typeof(ValueObject));
 
-    private readonly IObjectProvider<Class> Entities =
+    private static readonly IObjectProvider<Class> Entities =
         Classes().That()
             .ResideInNamespace("ToDoList.*.Domain", useRegularExpressions: true)
             .And()
-            .AreAssignableTo(typeof(Entity))
-            .As("Entities");
-    
-    private readonly IObjectProvider<Class> AggregateRoots =
+            .AreAssignableTo(typeof(Entity));
+
+    private static readonly IObjectProvider<Class> AggregateRoots =
         Classes().That()
             .ResideInNamespace("ToDoList.*.Domain", useRegularExpressions: true)
             .And()
-            .ImplementInterface(typeof(IAggregateRoot))
-            .As("Entities");
-
+            .ImplementInterface(typeof(IAggregateRoot));
 
     [Fact]
     public void DomainEvent_Should_Be_Immutable()
@@ -60,7 +54,7 @@ public class DomainTests
 
     [Fact]
     public void Entity_Which_Is_Not_Aggregate_Root_Cannot_Have_Public_Methods()
-    { 
+    {
         Types()
             .That().Are(Entities)
             .And().AreNot(AggregateRoots)

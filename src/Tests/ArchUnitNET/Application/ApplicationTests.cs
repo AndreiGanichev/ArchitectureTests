@@ -9,13 +9,13 @@ namespace ToDoList.ArchUnitNET.Application;
 
 public class ApplicationTests
 {
-    private readonly IObjectProvider<Class> Requests =
+    private static readonly IObjectProvider<Class> Requests =
         Classes()
             .That().Are(ApplicationContracts)
             .And()
             .ImplementInterface(typeof(IRequest<>));
 
-    private readonly IObjectProvider<Class> RequestHandlers =
+    private static readonly IObjectProvider<Class> RequestHandlers =
         Classes()
             .That().Are(ApplicationInternals)
             .And()
