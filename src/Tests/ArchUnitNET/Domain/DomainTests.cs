@@ -53,13 +53,31 @@ public class DomainTests
     }
 
     [Fact]
+    public void Entities_Cannot_Have_Public_Setters()
+    {
+        Types()
+            .That().Are(Entities)
+            .GetObjects(ToDoListArchitecture)
+            .Where(t =>
+            {
+                var e = t.GetMethodMembers().Any(m => m.MethodForm == MethodForm.Setter && m.Visibility == Visibility.Public);
+                return e;
+            })
+            .Should().BeEmpty();
+    }
+    
+    [Fact]
     public void Entity_Which_Is_Not_Aggregate_Root_Cannot_Have_Public_Methods()
     {
         Types()
             .That().Are(Entities)
             .And().AreNot(AggregateRoots)
             .GetObjects(ToDoListArchitecture)
-            .Where(t => t.GetMethodMembers().Any(m => m.Visibility == Visibility.Public))
+            .Where(t => 
+                t.GetMethodMembers()
+                    .Any(m => 
+                        m.MethodForm is not (MethodForm.Getter or MethodForm.Setter)
+                        && m.Visibility == Visibility.Public))
             .Should().BeEmpty();
     }
 

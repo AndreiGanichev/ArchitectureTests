@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Reflection;
 using FluentAssertions;
@@ -28,9 +29,9 @@ public class DomainTests
     [ClassData(typeof(ModuleList))]
     public void ValueObject_Should_Be_Immutable(string module)
     {
-        foreach (var domain in ArchitectureExplorer.Modules.DomainOf(module))
+        foreach (var assemblyName in ArchitectureExplorer.Modules.DomainOf(module))
         {
-            Types.InNamespace(domain)
+            Types.InAssembly(Assembly.Load(assemblyName))
                 .That()
                 .Inherit(typeof(ValueObject))
                 .ShouldNot().BeMutable()
@@ -38,23 +39,45 @@ public class DomainTests
                 .Should().BeNullOrEmpty();
         }
     }
+    
+    [Theory]
+    [ClassData(typeof(ModuleList))]
+    public void Entities_Cannot_Have_Public_Setters(string module)
+    {
+        var bindingFlags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static |
+                           BindingFlags.DeclaredOnly;
+        
+        foreach (var assemblyName in ArchitectureExplorer.Modules.DomainOf(module))
+        {
+            Types.InAssembly(Assembly.Load(assemblyName))
+                .That()
+                .Inherit(typeof(Entity))
+                .GetTypes()
+                .Where(t => t.GetProperties(bindingFlags).Any(p => p.SetMethod?.IsPublic ?? false))
+                .Should().BeEmpty();
+        }
+    }
 
     [Theory]
     [ClassData(typeof(ModuleList))]
     public void Entity_Which_Is_Not_Aggregate_Root_Cannot_Have_Public_Methods(string module)
     {
-        const BindingFlags bindingFlags = BindingFlags.Public |
-                                          BindingFlags.Instance |
-                                          BindingFlags.Static;
+        var bindingFlags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static |
+                           BindingFlags.DeclaredOnly;
 
-        foreach (var domain in ArchitectureExplorer.Modules.DomainOf(module))
+        var isPropertyMethod = (MemberInfo m) => m.Name.StartsWith("get_", StringComparison.Ordinal)
+                                                 || m.Name.StartsWith("set_", StringComparison.Ordinal);
+        
+        
+        foreach (var assemblyName in ArchitectureExplorer.Modules.DomainOf(module))
         {
-            Types.InNamespace(domain)
+            Types.InAssembly(Assembly.Load(assemblyName))
                 .That()
                 .Inherit(typeof(Entity))
                 .And().DoNotImplementInterface(typeof(IAggregateRoot))
                 .GetTypes()
-                .Where(t => t.GetMethods(bindingFlags).Any()).Should().BeEmpty();
+                .Where(t => t.GetMethods(bindingFlags).Any(m => !isPropertyMethod(m)))
+                .Should().BeEmpty();
         }
     }
 
@@ -77,9 +100,9 @@ public class DomainTests
     [ClassData(typeof(ModuleList))]
     public void DomainModel_Should_Not_Have_NestedTypes(string module)
     {
-        foreach (var domain in ArchitectureExplorer.Modules.DomainOf(module))
+        foreach (var assemblyName in ArchitectureExplorer.Modules.DomainOf(module))
         {
-            Types.InNamespace(domain)
+            Types.InAssembly(Assembly.Load(assemblyName))
                 .ShouldNot().BeNested()
                 .GetResult().FailingTypes
                 .Should().BeNullOrEmpty();
