@@ -12,7 +12,7 @@ public class ApplicationTests
     [ClassData(typeof(ModuleList))]
     public void RequestHandler_Should_Not_Be_Public(string module)
     {
-        Types.InNamespace(ArchitectureExplorer.Modules.ApplicationInternalsOf(module))
+        Types.InAssembly(Assembly.Load(ArchitectureExplorer.Modules.ApplicationInternalsOf(module)))
                 .That()
                 .ImplementInterface(typeof(IRequestHandler<>))
                 .Or()
@@ -26,7 +26,7 @@ public class ApplicationTests
     [ClassData(typeof(ModuleList))]
     public void RequestHandler_Should_Be_Sealed(string module)
     {
-        Types.InNamespace(ArchitectureExplorer.Modules.ApplicationInternalsOf(module))
+        Types.InAssembly(Assembly.Load(ArchitectureExplorer.Modules.ApplicationInternalsOf(module)))
             .That()
             .ImplementInterface(typeof(IRequestHandler<>))
             .Or()
@@ -54,7 +54,7 @@ public class ApplicationTests
     [ClassData(typeof(ModuleList))]
     public void Request_Should_Be_Immutable(string module)
     {
-        Types.InNamespace(ArchitectureExplorer.Modules.ApplicationContractsOf(module))
+        Types.InAssembly(Assembly.Load(ArchitectureExplorer.Modules.ApplicationContractsOf(module)))
             .That()
             .ImplementInterface(typeof(IRequest))
             .Or()
@@ -68,7 +68,7 @@ public class ApplicationTests
     [ClassData(typeof(ModuleList))]
     public void Request_Should_Have_Name_With_Postfix_QueryOrCommand(string module)
     {
-        Types.InNamespace(ArchitectureExplorer.Modules.ApplicationContractsOf(module))
+        Types.InAssembly(Assembly.Load(ArchitectureExplorer.Modules.ApplicationContractsOf(module)))
             .That()
             .ImplementInterface(typeof(IRequest))
             .Or()

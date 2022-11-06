@@ -25,19 +25,19 @@ public class ApplicationTests
             [Fact]
     public void RequestHandler_Should_Not_Be_Public()
     {
-        Types().That().Are(RequestHandlers).Should().NotBePublic().Check(ToDoListArchitecture);
+        Classes().That().Are(RequestHandlers).Should().NotBePublic().Check(ToDoListArchitecture);
     }
     
     [Fact]
     public void RequestHandler_Should_Be_Sealed()
     {
-        Types().That().Are(RequestHandlers).Should().NotBePublic();
+        Classes().That().Are(RequestHandlers).Should().BeSealed().Check(ToDoListArchitecture);
     }
 
     [Fact]
     public void RequestHandler_Should_Have_Name_With_Postfix_Handler()
     {
-        Types()
+        Classes()
             .That().Are(RequestHandlers)
             .Should().HaveNameEndingWith("Handler")
             .Check(ToDoListArchitecture);
@@ -46,14 +46,15 @@ public class ApplicationTests
     [Fact]
     public void Request_Should_Be_Immutable()
     {
-        Types().That().Are(Requests).Should().NotBePublic();
+        Classes().That().Are(Requests).Should().NotBePublic();
     }
     
     [Fact]
     public void Request_Should_Be_Have_Name_With_Postfix_QueryOrCommand()
     {
-        Types().That().Are(Requests)
+        Classes().That().Are(Requests)
             .Should().HaveNameEndingWith("Query")
-            .OrShould().HaveNameEndingWith("Command");
+            .OrShould().HaveNameEndingWith("Command")
+            .Check(ToDoListArchitecture);
     }
 }
