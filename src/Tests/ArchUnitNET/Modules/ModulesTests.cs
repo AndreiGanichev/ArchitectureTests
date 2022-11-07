@@ -9,7 +9,7 @@ public class ModulesTests
 {
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void DomainLayer_DoesNotHaveDependency_ToOtherModules(string module)
+    public void DomainLayer_ShouldNotHave_Dependency_ToOtherModules(string module)
     {
         var otherModules = ArchitectureExplorer.Modules.Except(module);
 
@@ -22,7 +22,7 @@ public class ModulesTests
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void ApplicationLayer_DoesNotHaveDependency_ToOtherModules(string module)
+    public void ApplicationLayer_ShouldNotHave_Dependency_ToOtherModules(string module)
     {
         var otherModules = ArchitectureExplorer.Modules.Except(module);
 
@@ -35,7 +35,7 @@ public class ModulesTests
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void InfrastructureLayer_Except_InfrastructureModules_DoesNotHaveDependency_ToOtherModules(string module)
+    public void InfrastructureLayer_Except_InfrastructureModules_ShouldNotHaveDependency_ToOtherModules(string module)
     {
         var otherModules = ArchitectureExplorer.Modules.Except(module);
 
@@ -50,7 +50,7 @@ public class ModulesTests
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void InfrastructureModules_HasDependency_ToContracts_Only(string module)
+    public void InfrastructureModules_ShouldHas_Dependency_ToApplicationContracts_Only(string module)
     {
         Types().That()
             .Are(InfrastructureModulesOf(module))

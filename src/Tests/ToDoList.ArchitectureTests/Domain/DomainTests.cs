@@ -12,7 +12,7 @@ public class DomainTests
 {
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void DomainEvent_Should_Be_Immutable(string module)
+    public void DomainEvent_ShouldBe_Immutable(string module)
     {
         foreach (var assemblyName in ArchitectureExplorer.Modules.DomainOf(module))
         {
@@ -27,7 +27,7 @@ public class DomainTests
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void ValueObject_Should_Be_Immutable(string module)
+    public void ValueObject_ShouldBe_Immutable(string module)
     {
         foreach (var assemblyName in ArchitectureExplorer.Modules.DomainOf(module))
         {
@@ -42,7 +42,7 @@ public class DomainTests
     
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void Entities_Cannot_Have_Public_Setters(string module)
+    public void Entities_DoNotHave_PublicSetters(string module)
     {
         var bindingFlags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static |
                            BindingFlags.DeclaredOnly;
@@ -60,7 +60,7 @@ public class DomainTests
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void Entity_Which_Is_Not_Aggregate_Root_Cannot_Have_Public_Methods(string module)
+    public void Entity_WhichIsNotAggregateRoot_ShouldNotHave_PublicMethods(string module)
     {
         var bindingFlags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static |
                            BindingFlags.DeclaredOnly;
@@ -83,7 +83,7 @@ public class DomainTests
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void DomainEvent_Should_Have_DomainEventPostfix(string module)
+    public void DomainEvent_ShouldHave_DomainEventPostfix(string module)
     {
         foreach (var assemblyName in ArchitectureExplorer.Modules.DomainOf(module))
         {
@@ -98,7 +98,7 @@ public class DomainTests
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void DomainModel_Should_Not_Have_NestedTypes(string module)
+    public void DomainModel_ShouldNotHave_NestedTypes(string module)
     {
         foreach (var assemblyName in ArchitectureExplorer.Modules.DomainOf(module))
         {

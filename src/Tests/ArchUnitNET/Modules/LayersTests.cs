@@ -9,7 +9,7 @@ public class LayersTests
 {
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void DomainLayer_DoesNotHaveDependency_ToApplicationLayer(string module)
+    public void DomainLayer_ShouldNotHave_Dependency_ToApplicationLayer(string module)
     {
         Types().That()
             .Are(DomainLayerOf(module))
@@ -20,7 +20,7 @@ public class LayersTests
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void DomainLayer_DoesNotHaveDependency_ToInfrastructureLayer(string module)
+    public void DomainLayer_ShouldNotHave_Dependency_ToInfrastructureLayer(string module)
     {
         Types().That()
             .Are(DomainLayerOf(module))
@@ -31,7 +31,7 @@ public class LayersTests
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void ApplicationLayer_DoesNotHaveDependency_ToInfrastructureLayer(string module)
+    public void ApplicationLayer_ShouldNotHave_Dependency_ToInfrastructureLayer(string module)
     {
         Types().That()
             .Are(ApplicationLayerOf(module))

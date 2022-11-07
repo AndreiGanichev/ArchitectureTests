@@ -2,12 +2,12 @@ namespace ToDoList.ArchUnitNET.Api;
 
 public class ApiTests
 {
-    public void Endpoints_Should_Return_ProblemDetails_When_Request_Failed()
+    public void Endpoints_ShouldReturn_ProblemDetails_When_RequestFailed()
     {
         
     }
     
-    public void Contracts_Should_Be_Serializable()
+    public void Contracts_ShouldBe_Serializable()
     {
         
     }

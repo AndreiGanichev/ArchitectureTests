@@ -23,19 +23,19 @@ public class ApplicationTests
             .Or().ImplementInterface(typeof(IRequestHandler<,>));
 
             [Fact]
-    public void RequestHandler_Should_Not_Be_Public()
+    public void RequestHandler_ShouldNotBe_Public()
     {
         Classes().That().Are(RequestHandlers).Should().NotBePublic().Check(ToDoListArchitecture);
     }
     
     [Fact]
-    public void RequestHandler_Should_Be_Sealed()
+    public void RequestHandler_ShouldBe_Sealed()
     {
         Classes().That().Are(RequestHandlers).Should().BeSealed().Check(ToDoListArchitecture);
     }
 
     [Fact]
-    public void RequestHandler_Should_Have_Name_With_Postfix_Handler()
+    public void RequestHandler_ShouldHave_NameWithPostfix_Handler()
     {
         Classes()
             .That().Are(RequestHandlers)
@@ -44,13 +44,13 @@ public class ApplicationTests
     }
     
     [Fact]
-    public void Request_Should_Be_Immutable()
+    public void Request_ShouldBe_Immutable()
     {
         Classes().That().Are(Requests).Should().NotBePublic();
     }
     
     [Fact]
-    public void Request_Should_Be_Have_Name_With_Postfix_QueryOrCommand()
+    public void Request_ShouldHave_NameWithPostfix_QueryOrCommand()
     {
         Classes().That().Are(Requests)
             .Should().HaveNameEndingWith("Query")

@@ -10,7 +10,7 @@ public class ApplicationTests
 {
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void RequestHandler_Should_Not_Be_Public(string module)
+    public void RequestHandler_ShouldNotBe_Public(string module)
     {
         Types.InAssembly(Assembly.Load(ArchitectureExplorer.Modules.ApplicationInternalsOf(module)))
                 .That()
@@ -24,7 +24,7 @@ public class ApplicationTests
     
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void RequestHandler_Should_Be_Sealed(string module)
+    public void RequestHandler_ShouldBe_Sealed(string module)
     {
         Types.InAssembly(Assembly.Load(ArchitectureExplorer.Modules.ApplicationInternalsOf(module)))
             .That()
@@ -38,7 +38,7 @@ public class ApplicationTests
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void RequestHandler_Should_Have_Name_With_Postfix_Handler(string module)
+    public void RequestHandler_ShouldHave_NameWithPostfix_Handler(string module)
     {
         Types.InAssembly(Assembly.Load(ArchitectureExplorer.Modules.ApplicationInternalsOf(module)))
             .That()
@@ -52,7 +52,7 @@ public class ApplicationTests
     
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void Request_Should_Be_Immutable(string module)
+    public void Request_ShouldBe_Immutable(string module)
     {
         Types.InAssembly(Assembly.Load(ArchitectureExplorer.Modules.ApplicationContractsOf(module)))
             .That()

@@ -8,7 +8,7 @@ public class LayersTests
 {
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void DomainLayer_DoesNotHaveDependency_ToApplicationLayer(string module)
+    public void DomainLayer_ShouldNotHave_Dependency_ToApplicationLayer(string module)
     {
         foreach (var domain in ArchitectureExplorer.Modules.DomainOf(module))
         {
@@ -22,7 +22,7 @@ public class LayersTests
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void DomainLayer_DoesNotHaveDependency_ToInfrastructureLayer(string module)
+    public void DomainLayer_ShouldNotHave_Dependency_ToInfrastructureLayer(string module)
     {
         foreach (var domain in ArchitectureExplorer.Modules.DomainOf(module))
         {
@@ -36,7 +36,7 @@ public class LayersTests
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void ApplicationLayer_DoesNotHaveDependency_ToInfrastructureLayer(string module)
+    public void ApplicationLayer_ShouldNotHave_Dependency_ToInfrastructureLayer(string module)
     {
         foreach (var application in ArchitectureExplorer.Modules.ApplicationOf(module))
         {

@@ -41,19 +41,19 @@ public class DomainTests
             .ImplementInterface(typeof(IAggregateRoot));
 
     [Fact]
-    public void DomainEvent_Should_Be_Immutable()
+    public void DomainEvent_ShouldBe_Immutable()
     {
         // immutability check implemented but not released yet
     }
 
     [Fact]
-    public void ValueObject_Should_Be_Immutable()
+    public void ValueObject_ShouldBe_Immutable()
     {
         // immutability check implemented but not released yet
     }
 
     [Fact]
-    public void Entities_Cannot_Have_Public_Setters()
+    public void Entity_ShouldNotHave_PublicSetters()
     {
         Types()
             .That().Are(Entities)
@@ -67,7 +67,7 @@ public class DomainTests
     }
     
     [Fact]
-    public void Entity_Which_Is_Not_Aggregate_Root_Cannot_Have_Public_Methods()
+    public void Entity_WhichIsNotAggregateRoot_ShouldNotHave_PublicMethods()
     {
         Types()
             .That().Are(Entities)
@@ -82,7 +82,7 @@ public class DomainTests
     }
 
     [Fact]
-    public void DomainEvent_Should_Have_DomainEventPostfix()
+    public void DomainEvent_ShouldHave_DomainEventPostfix()
     {
         Types().That().Are(DomainEvents)
             .Should().HaveNameEndingWith("DomainEvent")
@@ -90,7 +90,7 @@ public class DomainTests
     }
 
     [Fact]
-    public void DomainModel_Should_Not_Have_NestedTypes()
+    public void DomainModel_ShouldNotHave_NestedTypes()
     {
         Types()
             .That().Are(DomainModel)

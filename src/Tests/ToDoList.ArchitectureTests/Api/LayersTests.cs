@@ -8,7 +8,7 @@ public class LayersTests
 {
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void Api_Should_Not_Have_Dependencies_To_Domain(string module)
+    public void Api_ShouldNotHave_Dependencies_ToDomain(string module)
     {
         Types.InNamespace(ArchitectureExplorer.ApiNamespace)
             .ShouldNot()
@@ -19,7 +19,7 @@ public class LayersTests
     
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void Api_Can_Have_Dependencies_To_ApplicationContracts_Only(string module)
+    public void Api_CanHave_Dependencies_ToApplicationContracts_Only(string module)
     { 
         Types.InNamespace(ArchitectureExplorer.ApiNamespace)
             .That().HaveDependencyOnAny(ArchitectureExplorer.Modules.ApplicationOf(module))
@@ -29,7 +29,7 @@ public class LayersTests
     }
     
     [Fact]
-    public void Api_Can_Have_Dependencies_To_InfrastructureConfiguration_Only()
+    public void Api_Can_HaveDependencies_ToInfrastructureConfiguration_Only()
     {
     }
 }

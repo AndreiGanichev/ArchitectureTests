@@ -8,7 +8,7 @@ namespace ToDoList.ArchUnitNET.Api;
 public class LayersTests
 {
     [Fact]
-    public void Api_Should_Not_Have_Dependencies_To_Domain()
+    public void Api_ShouldNotHave_Dependencies_ToDomain()
     {
         Types().That()
             .Are(PresentationLayer)
@@ -18,7 +18,7 @@ public class LayersTests
     }
     
     [Fact]
-    public void Api_Can_Have_Dependencies_To_ApplicationContracts_Only()
+    public void Api_CanHave_Dependencies_ToApplicationContracts_Only()
     {
         Types().That()
             .Are(PresentationLayer)
@@ -28,7 +28,7 @@ public class LayersTests
     }
     
     [Fact]
-    public void Api_Can_Have_Dependencies_To_InfrastructureConfiguration_Only()
+    public void Api_Can_HaveDependencies_ToInfrastructureConfiguration_Only()
     {
 
     }
