@@ -40,7 +40,7 @@ public class ModulesTests
     
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void InfrastructureLayer_Except_InfrastructureModules_ShouldNotHaveDependency_ToOtherModules(string module)
+    public void InfrastructureLayer_Except_InfrastructureGateway_ShouldNotHaveDependency_ToOtherModules(string module)
     {
         var otherModules = ArchitectureExplorer.Modules.Except(module);
 
@@ -50,7 +50,7 @@ public class ModulesTests
                 .That()
                 .HaveDependencyOnAny(otherModules)
                 .Should()
-                .ResideInNamespace(ArchitectureExplorer.Modules.InfrastructureModulesOf(module))
+                .ResideInNamespace(ArchitectureExplorer.Modules.InfrastructureGatewayOf(module))
                 .GetResult()
                 .IsSuccessful.Should().BeTrue();
         }

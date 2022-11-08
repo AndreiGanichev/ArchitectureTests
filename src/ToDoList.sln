@@ -24,8 +24,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Domain", "Mod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Application.Contracts", "Modules\Notifications\ToDoList.Notifications.Application.Contracts\Notifications.Application.Contracts.csproj", "{B93A4E20-10AC-4C8F-BDB0-81788F1C5A38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Infrastructure.Modules", "Modules\Notifications\ToDoList.Notifications.Infrastructure.Modules\Notifications.Infrastructure.Modules.csproj", "{5B021A10-5FE9-4502-BBDF-315295482A60}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Infrastructure.Configuration", "Modules\Notifications\ToDoList.Notifications.Infrastructure.Configuration\Notifications.Infrastructure.Configuration.csproj", "{9EAD38A2-2EF4-4B5E-B03C-3486F3DAA51E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Application.Internals", "Modules\Notifications\ToDoList.Notifications.Application\Notifications.Application.Internals.csproj", "{00C91EF1-1618-426D-80B8-C8F276D8B757}"
@@ -46,6 +44,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetArchTest", "Tests\ToDoLi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchUnitNET", "Tests\ArchUnitNET\ArchUnitNET.csproj", "{FEEB749C-1A86-492E-B7C1-937093F428B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Infrastructure.Gateway", "Modules\Notifications\ToDoList.Notifications.Infrastructure.Gateway\Notifications.Infrastructure.Gateway.csproj", "{891E66D3-28E2-42B3-BCC5-71373834C541}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,7 +63,6 @@ Global
 		{6BF1FB9E-2A3D-4F89-BF86-2D8E152970DA} = {ADE58924-5868-4A0D-842A-11B41AED1C08}
 		{050F7E82-941F-42CB-9F0C-F05A373DCEAC} = {ADE58924-5868-4A0D-842A-11B41AED1C08}
 		{B93A4E20-10AC-4C8F-BDB0-81788F1C5A38} = {ADE58924-5868-4A0D-842A-11B41AED1C08}
-		{5B021A10-5FE9-4502-BBDF-315295482A60} = {ADE58924-5868-4A0D-842A-11B41AED1C08}
 		{9EAD38A2-2EF4-4B5E-B03C-3486F3DAA51E} = {ADE58924-5868-4A0D-842A-11B41AED1C08}
 		{00C91EF1-1618-426D-80B8-C8F276D8B757} = {ADE58924-5868-4A0D-842A-11B41AED1C08}
 		{8773529F-785A-4EFF-8540-B7050BB2C3A3} = {6042B4F0-8B37-4F5C-83F8-0B2D4CB0C079}
@@ -71,6 +70,7 @@ Global
 		{2CC1F10F-62DA-4037-8476-F6FD22A2D868} = {47C59209-98F9-41B2-A1C3-E3CB2DDD6E25}
 		{AC1CA84B-7CA7-4A5F-81F4-6466B469FCB4} = {72F72E13-08F1-4389-9EBB-C4DFD045CCEC}
 		{FEEB749C-1A86-492E-B7C1-937093F428B2} = {72F72E13-08F1-4389-9EBB-C4DFD045CCEC}
+		{891E66D3-28E2-42B3-BCC5-71373834C541} = {ADE58924-5868-4A0D-842A-11B41AED1C08}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C266F51A-1821-4976-9B60-EF9FFA487B45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -109,10 +109,6 @@ Global
 		{B93A4E20-10AC-4C8F-BDB0-81788F1C5A38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B93A4E20-10AC-4C8F-BDB0-81788F1C5A38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B93A4E20-10AC-4C8F-BDB0-81788F1C5A38}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5B021A10-5FE9-4502-BBDF-315295482A60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B021A10-5FE9-4502-BBDF-315295482A60}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B021A10-5FE9-4502-BBDF-315295482A60}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B021A10-5FE9-4502-BBDF-315295482A60}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9EAD38A2-2EF4-4B5E-B03C-3486F3DAA51E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9EAD38A2-2EF4-4B5E-B03C-3486F3DAA51E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EAD38A2-2EF4-4B5E-B03C-3486F3DAA51E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -145,5 +141,9 @@ Global
 		{FEEB749C-1A86-492E-B7C1-937093F428B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEEB749C-1A86-492E-B7C1-937093F428B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEEB749C-1A86-492E-B7C1-937093F428B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{891E66D3-28E2-42B3-BCC5-71373834C541}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{891E66D3-28E2-42B3-BCC5-71373834C541}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{891E66D3-28E2-42B3-BCC5-71373834C541}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{891E66D3-28E2-42B3-BCC5-71373834C541}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

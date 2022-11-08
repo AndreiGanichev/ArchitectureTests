@@ -33,7 +33,7 @@
       <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Infrastructure.Configuration\Notifications.Infrastructure.Configuration.csproj" />
       <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Infrastructure.Database\Notifications.Infrastructure.Database.csproj" />
       <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Infrastructure.MessageBus\Notifications.Infrastructure.MessageBus.csproj" />
-      <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Infrastructure.Modules\Notifications.Infrastructure.Modules.csproj" />
+      <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Infrastructure.Modules\Notifications.Infrastructure.Gateway.csproj" />
       <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Infrastructure.Telegram\Notifications.Infrastructure.Telegram.csproj" />
       <ProjectReference Include="..\..\Modules\Tasks\ToDoList.Tasks.Application.Contracts\Tasks.Application.Contracts.csproj" />
       <ProjectReference Include="..\..\Modules\Tasks\ToDoList.Tasks.Application\Tasks.Application.Internals.csproj" />

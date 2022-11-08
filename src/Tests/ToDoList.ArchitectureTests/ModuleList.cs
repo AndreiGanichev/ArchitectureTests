@@ -32,7 +32,7 @@ public class ModuleList : IEnumerable<object[]>, IEnumerable<string>
                 "ToDoList.Notifications.Infrastructure.Configuration",
                 "ToDoList.Notifications.Infrastructure.Database",
                 "ToDoList.Notifications.Infrastructure.MessageBus",
-                "ToDoList.Notifications.Infrastructure.Modules",
+                "ToDoList.Notifications.Infrastructure.Gateway",
                 "ToDoList.Notifications.Infrastructure.Telegram"
             }
         }
@@ -66,7 +66,7 @@ public class ModuleList : IEnumerable<object[]>, IEnumerable<string>
     public string[] InfrastructureOf(string module) =>
         Modules[module].Where(ns => Regex.IsMatch(ns, $"{module}.Infrastructure*")).ToArray();
     
-    public string? InfrastructureModulesOf(string module) =>
+    public string? InfrastructureGatewayOf(string module) =>
         Modules.SelectMany(m => m.Value).SingleOrDefault(ns => string.Equals(ns, $"{module}.Infrastructure.Modules", StringComparison.OrdinalIgnoreCase));
 
     #endregion

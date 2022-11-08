@@ -16,7 +16,7 @@ public static class ArchitectureExplorer
             System.Reflection.Assembly.Load("ToDoList.Notifications.Infrastructure.Configuration"),
             System.Reflection.Assembly.Load("ToDoList.Notifications.Infrastructure.Database"),
             System.Reflection.Assembly.Load("ToDoList.Notifications.Infrastructure.MessageBus"),
-            System.Reflection.Assembly.Load("ToDoList.Notifications.Infrastructure.Modules"),
+            System.Reflection.Assembly.Load("ToDoList.Notifications.Infrastructure.Gateway"),
             System.Reflection.Assembly.Load("ToDoList.Notifications.Infrastructure.Telegram"),
             // Tasks module
             System.Reflection.Assembly.Load("ToDoList.Tasks.Domain"),
@@ -67,9 +67,9 @@ public static class ArchitectureExplorer
         Types()
             .That().ResideInNamespace($"{module}.Infrastructure.*", true);
 
-    public static IObjectProvider<IType> InfrastructureModulesOf(string module) =>
+    public static IObjectProvider<IType> InfrastructureGatewayOf(string module) =>
         Types()
-            .That().ResideInNamespace($"{module}.Infrastructure.Modules", true);
+            .That().ResideInNamespace($"{module}.Infrastructure.Gateway", true);
     
     #endregion
 

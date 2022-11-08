@@ -35,14 +35,14 @@ public class ModulesTests
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void InfrastructureLayer_Except_InfrastructureModules_ShouldNotHaveDependency_ToOtherModules(string module)
+    public void InfrastructureLayer_Except_InfrastructureGateway_ShouldNotHaveDependency_ToOtherModules(string module)
     {
         var otherModules = ArchitectureExplorer.Modules.Except(module);
 
         Types().That()
             .Are(InfrastructureLayerOf(module))
             .And()
-            .AreNot(InfrastructureModulesOf(module))
+            .AreNot(InfrastructureGatewayOf(module))
             .Should()
             .NotDependOnAny(otherModules)
             .Evaluate(ToDoListArchitecture);
@@ -53,7 +53,7 @@ public class ModulesTests
     public void InfrastructureModules_ShouldHas_Dependency_ToApplicationContracts_Only(string module)
     {
         Types().That()
-            .Are(InfrastructureModulesOf(module))
+            .Are(InfrastructureGatewayOf(module))
             .Should()
             .OnlyDependOn(ApplicationContracts)
             .Check(ToDoListArchitecture);
