@@ -10,6 +10,7 @@
 
     <ItemGroup>
       <Compile Remove="Class1.cs" />
+      <Compile Remove="MyClass.cs" />
     </ItemGroup>
 
 </Project>

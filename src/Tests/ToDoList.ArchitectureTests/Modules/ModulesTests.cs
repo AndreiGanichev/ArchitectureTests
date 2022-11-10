@@ -18,7 +18,7 @@ public class ModulesTests
                 .ShouldNot()
                 .HaveDependencyOnAny(otherModules)
                 .GetResult()
-                .IsSuccessful.Should().BeTrue();
+                .FailingTypes.Should().BeNullOrEmpty();
         }
     }
     
@@ -34,7 +34,7 @@ public class ModulesTests
                 .ShouldNot()
                 .HaveDependencyOnAny(otherModules)
                 .GetResult()
-                .IsSuccessful.Should().BeTrue();
+                .FailingTypes.Should().BeNullOrEmpty();
         }
     }
     
@@ -52,7 +52,7 @@ public class ModulesTests
                 .Should()
                 .ResideInNamespace(ArchitectureExplorer.Modules.InfrastructureGatewayOf(module))
                 .GetResult()
-                .IsSuccessful.Should().BeTrue();
+                .FailingTypes.Should().BeNullOrEmpty();
         }
     }
     

@@ -31,7 +31,7 @@ public class ApplicationTests
             .ImplementInterface(typeof(IRequestHandler<>))
             .Or()
             .ImplementInterface(typeof(IRequestHandler<,>))
-            .ShouldNot().BePublic()
+            .Should().BeSealed()
             .GetResult()
             .FailingTypes.Should().BeNullOrEmpty();
     }

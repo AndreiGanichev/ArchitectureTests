@@ -50,7 +50,7 @@ public class ModulesTests
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void InfrastructureModules_ShouldHas_Dependency_ToApplicationContracts_Only(string module)
+    public void InfrastructureGateway_ShouldHas_Dependency_ToApplicationContracts_Only(string module)
     {
         Types().That()
             .Are(InfrastructureGatewayOf(module))
