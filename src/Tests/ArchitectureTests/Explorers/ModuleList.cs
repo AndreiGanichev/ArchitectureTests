@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ToDoList.ArchitectureTests;
+namespace ToDoList.ArchitectureTests.Explorers;
 
 public class ModuleList : IEnumerable<object[]>
 {

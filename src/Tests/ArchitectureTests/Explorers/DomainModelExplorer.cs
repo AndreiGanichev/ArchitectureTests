@@ -1,9 +1,9 @@
 using ArchUnitNET.Domain;
 using ToDoList.BuildingBlocks;
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
-using static ToDoList.ArchitectureTests.ArchitectureExplorer;
+using static ToDoList.ArchitectureTests.Explorers.ArchitectureExplorer;
 
-namespace ToDoList.ArchitectureTests;
+namespace ToDoList.ArchitectureTests.Explorers;
 
 internal static class DomainModelExplorer
 {

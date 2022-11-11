@@ -5,10 +5,10 @@ using ArchUnitNET.xUnit;
 using FluentAssertions;
 using Xunit;
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
-using static ToDoList.ArchitectureTests.ArchitectureExplorer;
-using static ToDoList.ArchitectureTests.DomainModelExplorer;
+using static ToDoList.ArchitectureTests.Explorers.ArchitectureExplorer;
+using static ToDoList.ArchitectureTests.Explorers.DomainModelExplorer;
 
-namespace ToDoList.ArchitectureTests.Domain;
+namespace ToDoList.ArchitectureTests;
 
 public class DomainTests
 {

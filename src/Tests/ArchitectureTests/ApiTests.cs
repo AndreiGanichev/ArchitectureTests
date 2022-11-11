@@ -1,4 +1,4 @@
-namespace ToDoList.ArchitectureTests.Api;
+namespace ToDoList.ArchitectureTests;
 
 public class ApiTests
 {

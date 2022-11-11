@@ -3,9 +3,9 @@ using ArchUnitNET.xUnit;
 using MediatR;
 using Xunit;
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
-using static ToDoList.ArchitectureTests.ArchitectureExplorer;
+using static ToDoList.ArchitectureTests.Explorers.ArchitectureExplorer;
 
-namespace ToDoList.ArchitectureTests.Application;
+namespace ToDoList.ArchitectureTests;
 
 public class ApplicationTests
 {

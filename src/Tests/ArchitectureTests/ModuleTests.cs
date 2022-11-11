@@ -1,11 +1,12 @@
 using ArchUnitNET.xUnit;
+using ToDoList.ArchitectureTests.Explorers;
 using Xunit;
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
-using static ToDoList.ArchitectureTests.ArchitectureExplorer;
+using static ToDoList.ArchitectureTests.Explorers.ArchitectureExplorer;
 
-namespace ToDoList.ArchitectureTests.Modules;
+namespace ToDoList.ArchitectureTests;
 
-public class LayersTests
+public class ModuleTests
 {
     [Theory]
     [ClassData(typeof(ModuleList))]
