@@ -6,9 +6,9 @@ using FluentAssertions;
 using ToDoList.BuildingBlocks;
 using Xunit;
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
-using static ToDoList.ArchUnitNET.ArchitectureExplorer;
+using static ToDoList.ArchitectureTests.ArchitectureExplorer;
 
-namespace ToDoList.ArchUnitNET.Domain;
+namespace ToDoList.ArchitectureTests.Domain;
 
 public class DomainTests
 {
