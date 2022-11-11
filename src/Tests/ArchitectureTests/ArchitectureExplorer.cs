@@ -26,6 +26,23 @@ public static class ArchitectureExplorer
             System.Reflection.Assembly.Load("ToDoList.Tasks.Infrastructure.Database"),
             System.Reflection.Assembly.Load("ToDoList.Tasks.Infrastructure.MessageBus"))
         .Build();
+    
+    public static IObjectProvider<IType> DomainLayerOf(string module) =>
+        Types()
+            .That().ResideInNamespace($"{module}.Domain", true);
+    
+    public static IObjectProvider<IType> ApplicationLayerOf(string module) =>
+        Types()
+            .That().ResideInNamespace($"{module}.Application.*", true);
+    
+    public static IObjectProvider<IType> InfrastructureLayerOf(string module) =>
+        Types()
+            .That().ResideInNamespace($"{module}.Infrastructure.*", true);
+    
+    public static IObjectProvider<IType> PresentationLayer =>
+        Types()
+            .That().ResideInNamespace("ToDoList.Api", true);
+    
 
     #region Domain layer
 
@@ -33,18 +50,12 @@ public static class ArchitectureExplorer
         Types()
             .That().ResideInNamespace("ToDoList.*.Domain", true);
     
-    public static IObjectProvider<IType> DomainLayerOf(string module) =>
-        Types()
-            .That().ResideInNamespace($"{module}.Domain", true);
+
 
     #endregion
 
     #region Application layer
 
-    public static IObjectProvider<IType> ApplicationLayerOf(string module) =>
-        Types()
-            .That().ResideInNamespace($"{module}.Application.*", true);
-    
     public static IObjectProvider<IType> ApplicationContracts =>
         Types()
             .That().ResideInNamespace("ToDoList.*.Application.Contracts", true);
@@ -63,22 +74,12 @@ public static class ArchitectureExplorer
 
     #region Infrastructure layer
 
-    public static IObjectProvider<IType> InfrastructureLayerOf(string module) =>
-        Types()
-            .That().ResideInNamespace($"{module}.Infrastructure.*", true);
+
 
     public static IObjectProvider<IType> InfrastructureGatewayOf(string module) =>
         Types()
             .That().ResideInNamespace($"{module}.Infrastructure.Gateway", true);
     
-    #endregion
-
-    #region Presentation layer
-
-    public static IObjectProvider<IType> PresentationLayer =>
-        Types()
-            .That().ResideInNamespace("ToDoList.Api", true);
-
     #endregion
 
     private static IObjectProvider<IType> Exclusions =>

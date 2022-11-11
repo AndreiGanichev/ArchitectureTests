@@ -3,43 +3,15 @@ using ArchUnitNET.Domain;
 using ArchUnitNET.Domain.Extensions;
 using ArchUnitNET.xUnit;
 using FluentAssertions;
-using ToDoList.BuildingBlocks;
 using Xunit;
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
 using static ToDoList.ArchitectureTests.ArchitectureExplorer;
+using static ToDoList.ArchitectureTests.DomainModelExplorer;
 
 namespace ToDoList.ArchitectureTests.Domain;
 
 public class DomainTests
 {
-    private static readonly IObjectProvider<Class> DomainModel =
-        Classes().That()
-            .ResideInNamespace("ToDoList.*.Domain", useRegularExpressions: true);
-
-    private static readonly IObjectProvider<Class> DomainEvents =
-        Classes().That()
-            .ResideInNamespace("ToDoList.*.Domain", useRegularExpressions: true)
-            .And()
-            .AreAssignableTo(typeof(DomainEvent));
-
-    private static readonly IObjectProvider<Class> ValueObjects =
-        Classes().That()
-            .ResideInNamespace("ToDoList.*.Domain", useRegularExpressions: true)
-            .And()
-            .AreAssignableTo(typeof(ValueObject));
-
-    private static readonly IObjectProvider<Class> Entities =
-        Classes().That()
-            .ResideInNamespace("ToDoList.*.Domain", useRegularExpressions: true)
-            .And()
-            .AreAssignableTo(typeof(Entity));
-
-    private static readonly IObjectProvider<Class> AggregateRoots =
-        Classes().That()
-            .ResideInNamespace("ToDoList.*.Domain", useRegularExpressions: true)
-            .And()
-            .ImplementInterface(typeof(IAggregateRoot));
-
     [Fact]
     public void DomainEvent_ShouldBe_Immutable()
     {
@@ -93,7 +65,7 @@ public class DomainTests
     public void DomainModel_ShouldNotHave_NestedTypes()
     {
         Types()
-            .That().Are(DomainModel)
+            .That().Are(DomainLayers)
             .Should().NotBeNested()
             .Check(ToDoListArchitecture);
     }
