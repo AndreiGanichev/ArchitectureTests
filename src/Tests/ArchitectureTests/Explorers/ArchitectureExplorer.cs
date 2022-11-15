@@ -1,6 +1,7 @@
 using ArchUnitNET.Domain;
 using ArchUnitNET.Loader;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
 
@@ -30,7 +31,8 @@ public static class ArchitectureExplorer
             // Api
             System.Reflection.Assembly.Load("ToDoList.Api"),
             typeof(AuthorizeAttribute).Assembly,
-            typeof(HttpMethodAttribute).Assembly)
+            typeof(HttpMethodAttribute).Assembly,
+            typeof(IActionResult).Assembly)
         .Build();
 
     public static IObjectProvider<IType> DomainLayerOf(string module) =>
