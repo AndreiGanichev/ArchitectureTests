@@ -27,17 +27,10 @@ public class DomainTests
     [Fact]
     public void Entity_ShouldNotHave_PublicSetters()
     {
-        Types()
-            .That().Are(Entities)
-            .GetObjects(ToDoListArchitecture)
-            .Where(t =>
-            {
-                var e = t.GetMethodMembers()
-                    .Any(m => m.MethodForm == MethodForm.Setter 
-                              && m.Visibility == Visibility.Public);
-                return e;
-            })
-            .Should().BeEmpty();
+        PropertyMembers()
+            .That().AreDeclaredIn(DomainLayers)
+            .Should().NotHavePublicSetter()
+            .Check(ToDoListArchitecture);
     }
     
     [Fact]
