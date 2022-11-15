@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ToDoList.Tasks.Application.Contracts;
 
@@ -16,6 +17,7 @@ public class TasksController : ControllerBase
     }
 
 
+    [Authorize]
     [HttpPost]
     public async Task<IActionResult> AddTask(CancellationToken cancellationToken)
     {
