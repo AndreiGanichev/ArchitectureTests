@@ -79,7 +79,7 @@ public class ModuleTests
             .AreNot(InfrastructureGatewayOf(module))
             .Should()
             .NotDependOnAny(otherModules, true)
-            .Evaluate(ToDoListArchitecture);
+            .Check(ToDoListArchitecture);
     }
 
     [Theory]

@@ -22,10 +22,13 @@ public class ApplicationTests
             .ImplementInterface(typeof(IRequestHandler<>))
             .Or().ImplementInterface(typeof(IRequestHandler<,>));
 
-            [Fact]
+    [Fact]
     public void RequestHandler_ShouldNotBe_Public()
     {
-        Classes().That().Are(RequestHandlers).Should().NotBePublic().Check(ToDoListArchitecture);
+        Classes()
+            .That().Are(RequestHandlers)
+            .Should().NotBePublic()
+            .Check(ToDoListArchitecture);
     }
     
     [Fact]

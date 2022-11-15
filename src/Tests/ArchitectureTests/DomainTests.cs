@@ -32,7 +32,9 @@ public class DomainTests
             .GetObjects(ToDoListArchitecture)
             .Where(t =>
             {
-                var e = t.GetMethodMembers().Any(m => m.MethodForm == MethodForm.Setter && m.Visibility == Visibility.Public);
+                var e = t.GetMethodMembers()
+                    .Any(m => m.MethodForm == MethodForm.Setter 
+                              && m.Visibility == Visibility.Public);
                 return e;
             })
             .Should().BeEmpty();
@@ -51,14 +53,6 @@ public class DomainTests
                         m.MethodForm is not (MethodForm.Getter or MethodForm.Setter)
                         && m.Visibility == Visibility.Public))
             .Should().BeEmpty();
-    }
-
-    [Fact]
-    public void DomainEvent_ShouldHave_DomainEventPostfix()
-    {
-        Types().That().Are(DomainEvents)
-            .Should().HaveNameEndingWith("DomainEvent")
-            .Check(ToDoListArchitecture);
     }
 
     [Fact]
