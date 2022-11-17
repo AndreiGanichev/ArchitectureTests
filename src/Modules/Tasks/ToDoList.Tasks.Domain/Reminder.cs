@@ -2,8 +2,8 @@ using ToDoList.BuildingBlocks;
 
 namespace ToDoList.Tasks.Domain;
 
-public class Notification : ValueObject
+public class Reminder : ValueObject
 {
-    public NotificationChannel Channel { get; }
+    public ReminderChannel Channel { get; }
     public DateTimeOffset At { get; }
 }
