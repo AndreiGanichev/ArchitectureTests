@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using FluentAssertions;
 using NetArchTest.Rules;
-using ToDoList.BuildingBlocks;
+using ToDoList.BuildingBlocks.Domain;
 using Xunit;
 
 namespace ToDoList.NetArchTest.Domain;

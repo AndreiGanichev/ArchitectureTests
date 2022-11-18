@@ -1,5 +1,5 @@
 using MediatR;
-using ToDoList.Tasks.Application.Contracts;
+using ToDoList.Tasks.Application.Contracts.AddTask;
 using ToDoList.Tasks.Application.Internals.Interfaces;
 using ToDoList.Tasks.Domain;
 using Task = System.Threading.Tasks.Task;

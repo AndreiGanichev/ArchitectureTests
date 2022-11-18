@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Tasks.Application.Contracts;
+using ToDoList.Tasks.Application.Contracts.AddTask;
+using ToDoList.Tasks.Application.Contracts.GetTask;
 
 namespace ToDoList.Api.Tasks;
 

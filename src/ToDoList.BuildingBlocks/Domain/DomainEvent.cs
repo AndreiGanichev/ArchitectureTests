@@ -1,6 +1,8 @@
-namespace ToDoList.BuildingBlocks;
+using MediatR;
 
-public abstract class DomainEvent
+namespace ToDoList.BuildingBlocks.Domain;
+
+public abstract class DomainEvent : INotification
 {
     public Guid Id { get; }
 

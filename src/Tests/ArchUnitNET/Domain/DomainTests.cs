@@ -3,7 +3,7 @@ using ArchUnitNET.Domain;
 using ArchUnitNET.Domain.Extensions;
 using ArchUnitNET.xUnit;
 using FluentAssertions;
-using ToDoList.BuildingBlocks;
+using ToDoList.BuildingBlocks.Domain;
 using Xunit;
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
 using static ToDoList.ArchUnitNET.ArchitectureExplorer;

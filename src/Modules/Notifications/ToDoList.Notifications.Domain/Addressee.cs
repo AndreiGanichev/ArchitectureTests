@@ -1,4 +1,4 @@
-using ToDoList.BuildingBlocks;
+using ToDoList.BuildingBlocks.Domain;
 
 namespace ToDoList.Notifications.Domain;
 

@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace ToDoList.Tasks.Application.Contracts;
+namespace ToDoList.Tasks.Application.Contracts.AddTask;
 
 public class AddTaskCommand : IRequest<Guid>
 {

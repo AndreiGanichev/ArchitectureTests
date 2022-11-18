@@ -1,7 +1,6 @@
 using MediatR;
-using ToDoList.Tasks.Application.Contracts.GetTask;
 
-namespace ToDoList.Tasks.Application.Contracts;
+namespace ToDoList.Tasks.Application.Contracts.GetTask;
 
 public class GetTaskQuery : IRequest<TaskDto?>
 {

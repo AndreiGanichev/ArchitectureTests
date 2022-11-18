@@ -1,4 +1,4 @@
-using ToDoList.BuildingBlocks;
+using ToDoList.BuildingBlocks.Domain;
 using ToDoList.Tasks.Domain.Events;
 using ToDoList.Tasks.Domain.Exceptions;
 
