@@ -8,7 +8,7 @@ public class UserGateway : IAddresseRepository
     private readonly Dictionary<Guid, Addressee> _addressees = new()
     {
         {
-            new Guid("0000000000000000000000000000001"),
+            new Guid("00000000-0000-0000-0000-000000000001"),
             Addressee.Create(
                 Name.Create("Ivan"),
                 PhoneNumber.Create("+71111111111"))
