@@ -1,8 +1,20 @@
 using ToDoList.BuildingBlocks;
+using ToDoList.Tasks.Domain.Exceptions;
 
 namespace ToDoList.Tasks.Domain;
 
 public class Title : ValueObject
 {
+    private const int TitleLengthLimit = 300;
+    
     private readonly string _value;
+
+    public Title(string value)
+    {
+        if (value.Length > TitleLengthLimit)
+        {
+            throw new TitleIsTooLongException();
+        }
+        _value = value;
+    }
 }
