@@ -14,6 +14,11 @@
 
     <ItemGroup>
       <ProjectReference Include="..\ToDoList.Notifications.Application.Contracts\Notifications.Application.Contracts.csproj" />
+      <ProjectReference Include="..\ToDoList.Notifications.Domain\Notifications.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="11.0.0" />
     </ItemGroup>
 
 </Project>

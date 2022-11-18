@@ -17,7 +17,6 @@ public static class ArchitectureExplorer
             System.Reflection.Assembly.Load("ToDoList.Notifications.Infrastructure.Database"),
             System.Reflection.Assembly.Load("ToDoList.Notifications.Infrastructure.MessageBus"),
             System.Reflection.Assembly.Load("ToDoList.Notifications.Infrastructure.Gateway"),
-            System.Reflection.Assembly.Load("ToDoList.Notifications.Infrastructure.Telegram"),
             // Tasks module
             System.Reflection.Assembly.Load("ToDoList.Tasks.Domain"),
             System.Reflection.Assembly.Load("ToDoList.Tasks.Application.Internals"),

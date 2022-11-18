@@ -8,4 +8,8 @@
         <RootNamespace>ToDoList.Notifications.Infrastructure.Gateway</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ToDoList.Notifications.Application\Notifications.Application.Internals.csproj" />
+    </ItemGroup>
+
 </Project>

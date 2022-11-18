@@ -55,7 +55,7 @@ public class ModulesTests
         Types().That()
             .Are(InfrastructureGatewayOf(module))
             .Should()
-            .OnlyDependOn(ApplicationContracts)
+            .OnlyDependOn(ApplicationContractsOrExclusions)
             .Check(ToDoListArchitecture);
     }
 }

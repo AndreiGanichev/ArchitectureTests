@@ -13,4 +13,8 @@
       <Compile Remove="MyClass.cs" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\ToDoList.BuildingBlocks\BuildingBlocks.csproj" />
+    </ItemGroup>
+
 </Project>

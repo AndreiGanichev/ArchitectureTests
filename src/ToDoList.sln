@@ -18,8 +18,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Infrastructur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Infrastructure.MessageBus", "Modules\Notifications\ToDoList.Notifications.Infrastructure.MessageBus\Notifications.Infrastructure.MessageBus.csproj", "{1DD75041-B18D-465E-9E64-F4BC81B0A363}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Infrastructure.Telegram", "Modules\Notifications\ToDoList.Notifications.Infrastructure.Telegram\Notifications.Infrastructure.Telegram.csproj", "{6BF1FB9E-2A3D-4F89-BF86-2D8E152970DA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Domain", "Modules\Notifications\ToDoList.Notifications.Domain\Notifications.Domain.csproj", "{050F7E82-941F-42CB-9F0C-F05A373DCEAC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Application.Contracts", "Modules\Notifications\ToDoList.Notifications.Application.Contracts\Notifications.Application.Contracts.csproj", "{B93A4E20-10AC-4C8F-BDB0-81788F1C5A38}"
@@ -60,7 +58,6 @@ Global
 		{4DD342E4-0A40-4551-B683-CE2683B112CF} = {6042B4F0-8B37-4F5C-83F8-0B2D4CB0C079}
 		{E371DBCD-1867-4950-97F7-5EEBA37E117E} = {ADE58924-5868-4A0D-842A-11B41AED1C08}
 		{1DD75041-B18D-465E-9E64-F4BC81B0A363} = {ADE58924-5868-4A0D-842A-11B41AED1C08}
-		{6BF1FB9E-2A3D-4F89-BF86-2D8E152970DA} = {ADE58924-5868-4A0D-842A-11B41AED1C08}
 		{050F7E82-941F-42CB-9F0C-F05A373DCEAC} = {ADE58924-5868-4A0D-842A-11B41AED1C08}
 		{B93A4E20-10AC-4C8F-BDB0-81788F1C5A38} = {ADE58924-5868-4A0D-842A-11B41AED1C08}
 		{9EAD38A2-2EF4-4B5E-B03C-3486F3DAA51E} = {ADE58924-5868-4A0D-842A-11B41AED1C08}
@@ -97,10 +94,6 @@ Global
 		{1DD75041-B18D-465E-9E64-F4BC81B0A363}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DD75041-B18D-465E-9E64-F4BC81B0A363}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DD75041-B18D-465E-9E64-F4BC81B0A363}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6BF1FB9E-2A3D-4F89-BF86-2D8E152970DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6BF1FB9E-2A3D-4F89-BF86-2D8E152970DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6BF1FB9E-2A3D-4F89-BF86-2D8E152970DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6BF1FB9E-2A3D-4F89-BF86-2D8E152970DA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{050F7E82-941F-42CB-9F0C-F05A373DCEAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{050F7E82-941F-42CB-9F0C-F05A373DCEAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{050F7E82-941F-42CB-9F0C-F05A373DCEAC}.Release|Any CPU.ActiveCfg = Release|Any CPU

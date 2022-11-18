@@ -5,7 +5,7 @@ using Task = System.Threading.Tasks.Task;
 
 namespace ToDoList.Tasks.Application.Internals;
 
-internal sealed class GetTaskHandler : IRequestHandler<GetTaskQuery, Domain.Task>
+internal sealed class GetTaskHandler : IRequestHandler<GetTaskQuery, Domain.Task?>
 {
     private readonly ITaskRepository _tasks;
 
@@ -14,7 +14,7 @@ internal sealed class GetTaskHandler : IRequestHandler<GetTaskQuery, Domain.Task
         _tasks = tasks;
     }
 
-    public Task<Domain.Task> Handle(GetTaskQuery request, CancellationToken cancellationToken)
+    public Task<Domain.Task?> Handle(GetTaskQuery request, CancellationToken cancellationToken)
     {
         var task = _tasks.Get(request.TaskId);
 

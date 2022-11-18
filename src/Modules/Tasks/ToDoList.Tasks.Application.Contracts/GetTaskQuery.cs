@@ -2,7 +2,7 @@ using MediatR;
 
 namespace ToDoList.Tasks.Application.Contracts;
 
-public class GetTaskQuery : IRequest<Domain.Task>
+public class GetTaskQuery : IRequest<Domain.Task?>
 {
     public Guid TaskId { get; }
     
