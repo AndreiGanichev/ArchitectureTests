@@ -17,10 +17,21 @@ public class TasksController : ControllerBase
 
 
     [HttpPost]
-    public async Task<IActionResult> AddTask(CancellationToken cancellationToken)
+    public async Task<IActionResult> AddTask(
+        Guid userId,
+        string title,
+        CancellationToken cancellationToken)
     {
-        var command = new AddTaskCommand("a task");
+        var command = new AddTaskCommand(userId, title);
         await _mediator.Send(command, cancellationToken);
         return Ok();
+    }
+    
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetTask(Guid id, CancellationToken cancellationToken)
+    {
+        var query = new GetTaskQuery(id);
+        var task = await _mediator.Send(query, cancellationToken);
+        return Ok(task);
     }
 }

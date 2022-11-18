@@ -6,20 +6,22 @@ namespace ToDoList.Tasks.Domain;
 
 public class Task : Entity, IAggregateRoot
 {
-    private readonly List<Observer> _observers;
+    private readonly List<Observer> _observers = new();
 
     public Guid Id { get; }
+    public Guid AuthorId { get; }
     public Title Title { get; private set; }
     public Reminder? Reminder { get; private set; }
     public IReadOnlyList<Observer> Observers => _observers.AsReadOnly();
 
-    private Task(Guid id, Title title)
+    private Task(Guid id, Guid authorId, Title title)
     {
         Id = id;
+        AuthorId = authorId;
         Title = title;
     }
 
-    public static Task Create(Title title) => new(Guid.NewGuid(), title);
+    public static Task Create(Guid authorId, Title title) => new(Guid.NewGuid(), authorId, title);
 
     public void AddObserver(Guid observerId, ObserverRole role)
     {

@@ -2,10 +2,11 @@ using MediatR;
 using ToDoList.Tasks.Application.Contracts;
 using ToDoList.Tasks.Application.Internals.Interfaces;
 using ToDoList.Tasks.Domain;
+using Task = System.Threading.Tasks.Task;
 
 namespace ToDoList.Tasks.Application.Internals;
 
-internal sealed class AddTaskHandler : IRequestHandler<AddTaskCommand>
+internal sealed class AddTaskHandler : IRequestHandler<AddTaskCommand, Guid>
 {
     private readonly ITaskRepository _tasks;
 
@@ -14,12 +15,12 @@ internal sealed class AddTaskHandler : IRequestHandler<AddTaskCommand>
         _tasks = tasks;
     }
 
-    public Task<Unit> Handle(AddTaskCommand request, CancellationToken cancellationToken)
+    public Task<Guid> Handle(AddTaskCommand request, CancellationToken cancellationToken)
     {
-        var task = Domain.Task.Create(Title.Create(request.Title));
+        var task = Domain.Task.Create(request.UserId, Title.Create(request.Title));
 
         _tasks.Add(task);
 
-        return Unit.Task;
+        return Task.FromResult(task.Id);
     }
 }
