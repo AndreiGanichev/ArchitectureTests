@@ -21,9 +21,9 @@ public class TasksController : ControllerBase
         [FromBody] AddTaskRequest request,
         CancellationToken cancellationToken)
     {
-        var command = new AddTaskCommand(request.UserId, request.Title, request.Date, request.RemindAt);
-        await _mediator.Send(command, cancellationToken);
-        return Ok();
+        var command = new AddTaskCommand(request.UserId, request.Title, DateOnly.FromDateTime(request.Date), request.RemindAt);
+        var taskId = await _mediator.Send(command, cancellationToken);
+        return Ok(taskId);
     }
     
     [HttpGet("{id}")]

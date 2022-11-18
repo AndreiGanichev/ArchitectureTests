@@ -7,7 +7,7 @@ public class TaskDto
     public Guid Id { get; }
     public Guid AuthorId { get; }
     public string Title { get; }
-    public DateOnly Date  { get; }
+    public DateTime Date  { get; }
     public DateTimeOffset RemindAt { get; }
 
     public TaskDto(Guid id, Guid authorId, string title, DateOnly date, DateTimeOffset remindAt)
@@ -15,7 +15,7 @@ public class TaskDto
         Id = id;
         AuthorId = authorId;
         Title = title;
-        Date = date;
+        Date = date.ToDateTime(TimeOnly.MinValue);
         RemindAt = remindAt;
     }
 }

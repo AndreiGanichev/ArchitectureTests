@@ -11,6 +11,6 @@ public static class TaskModule
     public static void Configure(IServiceCollection services, MediatRServiceConfiguration mediatrConfig)
     {
         ServiceRegistrar.AddMediatRClasses(services, new[] {typeof(ITaskRepository).Assembly}, mediatrConfig);
-        services.AddScoped<ITaskRepository, TaskRepository>();
+        services.AddSingleton<ITaskRepository, TaskRepository>();
     }
 }

@@ -12,7 +12,7 @@ public static class NotificationModule
     public static void Configure(IServiceCollection services, MediatRServiceConfiguration mediatrConfig)
     {
         ServiceRegistrar.AddMediatRClasses(services, new[] {typeof(INotificationRepository).Assembly}, mediatrConfig);
-        services.AddScoped<INotificationRepository, NotificationRepository>();
-        services.AddScoped<IAddresseRepository, UserGateway>();
+        services.AddSingleton<INotificationRepository, NotificationRepository>();
+        services.AddSingleton<IAddresseRepository, UserGateway>();
     }
 }
