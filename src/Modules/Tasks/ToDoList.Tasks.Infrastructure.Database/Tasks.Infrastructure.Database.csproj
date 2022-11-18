@@ -13,4 +13,8 @@
       <Compile Remove="Class1.cs" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ToDoList.Tasks.Application\Tasks.Application.Internals.csproj" />
+    </ItemGroup>
+
 </Project>

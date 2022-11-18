@@ -9,12 +9,15 @@ public class Title : ValueObject
     
     private readonly string _value;
 
-    public Title(string value)
+    private Title(string value)
     {
         if (value.Length > TitleLengthLimit)
         {
             throw new TitleIsTooLongException();
         }
+        
         _value = value;
     }
+
+    public static Title Create(string title) => new(title);
 }

@@ -13,20 +13,14 @@ public class Task : Entity, IAggregateRoot
     public Reminder? Reminder { get; private set; }
     public IReadOnlyList<Observer> Observers => _observers.AsReadOnly();
 
-    private Task(Guid id, Title title, List<Observer> observers, Reminder? reminder)
+    private Task(Guid id, Title title)
     {
         Id = id;
         Title = title;
-        _observers = observers;
-        Reminder = reminder;
     }
 
-    public static Task Create(Title title, List<Observer> observers, Reminder reminder) => new(
-        Guid.NewGuid(),
-        title,
-        observers,
-        reminder);
-    
+    public static Task Create(Title title) => new(Guid.NewGuid(), title);
+
     public void AddObserver(Guid observerId, ObserverRole role)
     {
         if (_observers.Any(o => o.Id == observerId))
