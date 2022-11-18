@@ -1,5 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using ToDoList.Notifications.Application.Contracts;
 using ToDoList.Tasks.Application.Contracts.AddTask;
 using ToDoList.Tasks.Application.Contracts.GetTask;
 
@@ -22,11 +23,17 @@ public class TasksController : ControllerBase
         [FromBody] AddTaskRequest request,
         CancellationToken cancellationToken)
     {
-        var command = new AddTaskCommand(request.UserId, request.Title, DateOnly.FromDateTime(request.Date), request.RemindAt);
+        var command = new AddTaskCommand(
+            new Guid("00000000-0000-0000-0000-000000000001"), 
+            request.Title,
+            DateOnly.FromDateTime(request.Date),
+            request.RemindAt);
+        
         var taskId = await _mediator.Send(command, cancellationToken);
+        
         return Ok(taskId);
     }
-    
+
     [HttpGet("{id}")]
     public async Task<IActionResult> GetTask(Guid id, CancellationToken cancellationToken)
     {
