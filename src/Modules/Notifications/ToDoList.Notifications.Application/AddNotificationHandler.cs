@@ -19,14 +19,13 @@ internal sealed class AddNotificationHandler : IRequestHandler<AddNotificationCo
 
     public Task<Unit> Handle(AddNotificationCommand request, CancellationToken cancellationToken)
     {
-        var addressee = _addresses.Get(request.Id)
+        var addressee = _addresses.Get(request.AddresseeId)
                         ?? throw new InvalidCommandException();
         
         var notification = Notification.Create(
-            request.Id,
+            request.TaskId,
             addressee,
             Body.Create(request.Body),
-            request.Channel,
             request.At);
 
         _notifications.Add(notification);

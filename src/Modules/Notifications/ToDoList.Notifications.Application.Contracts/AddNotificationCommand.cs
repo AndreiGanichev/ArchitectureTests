@@ -1,23 +1,19 @@
 using MediatR;
-using ToDoList.Notifications.Domain;
 
 namespace ToDoList.Notifications.Application.Contracts;
 
 public class AddNotificationCommand : IRequest
 {
-    public Guid Id { get; }
-
-    public Guid UserId { get; }
+    public Guid TaskId { get; }
+    public Guid AddresseeId { get; }
     public string Body { get; }
-    public Channel Channel { get; }
     public DateTimeOffset At { get; }
 
-    public AddNotificationCommand(Guid id, string body, Channel channel, DateTimeOffset at, Guid userId)
+    public AddNotificationCommand(Guid taskId, Guid addresseeId, string body, DateTimeOffset at)
     {
-        Id = id;
+        TaskId = taskId;
         Body = body;
-        Channel = channel;
         At = at;
-        UserId = userId;
+        AddresseeId = addresseeId;
     }
 }

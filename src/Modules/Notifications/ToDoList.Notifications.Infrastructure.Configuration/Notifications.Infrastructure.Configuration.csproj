@@ -21,6 +21,7 @@
       <ProjectReference Include="..\Notifications.Infrastructure.Gateway\Notifications.Infrastructure.Gateway.csproj" />
       <ProjectReference Include="..\ToDoList.Notifications.Application\Notifications.Application.Internals.csproj" />
       <ProjectReference Include="..\ToDoList.Notifications.Infrastructure.Database\Notifications.Infrastructure.Database.csproj" />
+      <ProjectReference Include="..\ToDoList.Notifications.Infrastructure.MessageBus\Notifications.Infrastructure.MessageBus.csproj" />
     </ItemGroup>
 
 </Project>
