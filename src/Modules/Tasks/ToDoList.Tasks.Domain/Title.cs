@@ -20,4 +20,6 @@ public class Title : ValueObject
     }
 
     public static Title Create(string title) => new(title);
+
+    public override string ToString() => _value;
 }

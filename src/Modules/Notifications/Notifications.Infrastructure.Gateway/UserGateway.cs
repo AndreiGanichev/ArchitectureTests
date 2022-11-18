@@ -3,7 +3,7 @@ using ToDoList.Notifications.Domain;
 
 namespace ToDoList.Notifications.Infrastructure.Gateway;
 
-public class UsersGateway : IAddresseRepository
+public class UserGateway : IAddresseRepository
 {
     private readonly Dictionary<Guid, Addressee> _addressees = new()
     {

@@ -1,4 +1,4 @@
-namespace ToDoList.Tasks.Domain.Events;
+namespace ToDoList.Tasks.Domain.Exceptions;
 
 public class ObserverNotFoundException : Exception
 {

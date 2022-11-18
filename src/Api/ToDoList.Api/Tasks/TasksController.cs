@@ -18,11 +18,10 @@ public class TasksController : ControllerBase
 
     [HttpPost]
     public async Task<IActionResult> AddTask(
-        Guid userId,
-        string title,
+        [FromBody] AddTaskRequest request,
         CancellationToken cancellationToken)
     {
-        var command = new AddTaskCommand(userId, title);
+        var command = new AddTaskCommand(request.UserId, request.Title, request.Date, request.RemindAt);
         await _mediator.Send(command, cancellationToken);
         return Ok();
     }

@@ -17,7 +17,7 @@ internal sealed class AddTaskHandler : IRequestHandler<AddTaskCommand, Guid>
 
     public Task<Guid> Handle(AddTaskCommand request, CancellationToken cancellationToken)
     {
-        var task = Domain.Task.Create(request.UserId, Title.Create(request.Title));
+        var task = Domain.Task.Create(request.UserId, Title.Create(request.Title), request.Date, request.RemindAt);
 
         _tasks.Add(task);
 

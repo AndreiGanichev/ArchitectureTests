@@ -11,17 +11,22 @@ public class Task : Entity, IAggregateRoot
     public Guid Id { get; }
     public Guid AuthorId { get; }
     public Title Title { get; private set; }
-    public Reminder? Reminder { get; private set; }
+    public DateOnly Date  { get; private set; }
+    public DateTimeOffset RemindAt { get; private set; }
     public IReadOnlyList<Observer> Observers => _observers.AsReadOnly();
 
-    private Task(Guid id, Guid authorId, Title title)
+    private Task(Guid id, Guid authorId, Title title, DateOnly date, DateTimeOffset remindAt)
     {
         Id = id;
         AuthorId = authorId;
         Title = title;
+        Date = date;
+        RemindAt = remindAt;
+        
+        AddDomainEvent(new TaskCreatedDomainEvent(id, authorId, title, date, remindAt));
     }
 
-    public static Task Create(Guid authorId, Title title) => new(Guid.NewGuid(), authorId, title);
+    public static Task Create(Guid authorId, Title title, DateOnly date, DateTimeOffset remindAt) => new(Guid.NewGuid(), authorId, title, date, remindAt);
 
     public void AddObserver(Guid observerId, ObserverRole role)
     {

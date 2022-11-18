@@ -19,6 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\Notifications\ToDoList.Notifications.Application\Notifications.Application.Internals.csproj" />
       <ProjectReference Include="..\ToDoList.Tasks.Application\Tasks.Application.Internals.csproj" />
       <ProjectReference Include="..\ToDoList.Tasks.Infrastructure.Database\Tasks.Infrastructure.Database.csproj" />
     </ItemGroup>
