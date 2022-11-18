@@ -1,11 +1,21 @@
+using MediatR;
+using MediatR.Registration;
+using ToDoList.Notifications.Infrastructure.Configuration;
+using ToDoList.Tasks.Infrastructure.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var mediatrConfig = new MediatRServiceConfiguration();
+ServiceRegistrar.AddRequiredServices(builder.Services, mediatrConfig);
+
+TaskModule.Configure(builder.Services, mediatrConfig);
+NotificationModule.Configure(builder.Services, mediatrConfig);
 
 var app = builder.Build();
 
