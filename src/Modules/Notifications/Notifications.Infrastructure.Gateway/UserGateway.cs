@@ -3,6 +3,7 @@ using ToDoList.Notifications.Domain;
 
 namespace ToDoList.Notifications.Infrastructure.Gateway;
 
+// stub for gateway to call other module
 public class UserGateway : IAddresseRepository
 {
     private readonly Dictionary<Guid, Addressee> _addressees = new()
