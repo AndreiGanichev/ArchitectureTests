@@ -10,39 +10,6 @@ public class ModuleTests
 {
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void Domain_ShouldNotHave_Dependency_ToApplication(string module)
-    {
-        Types().That()
-            .Are(DomainLayerOf(module))
-            .Should()
-            .NotDependOnAny(ApplicationLayerOf(module))
-            .Check(ToDoListArchitecture);
-    }
-
-    [Theory]
-    [ClassData(typeof(ModuleList))]
-    public void Domain_ShouldNotHave_Dependency_ToInfrastructure(string module)
-    {
-        Types().That()
-            .Are(DomainLayerOf(module))
-            .Should()
-            .NotDependOnAny(InfrastructureLayerOf(module))
-            .Check(ToDoListArchitecture);
-    }
-
-    [Theory]
-    [ClassData(typeof(ModuleList))]
-    public void Application_ShouldNotHave_Dependency_ToInfrastructure(string module)
-    {
-        Types().That()
-            .Are(ApplicationLayerOf(module))
-            .Should()
-            .NotDependOnAny(InfrastructureLayerOf(module))
-            .Check(ToDoListArchitecture);
-    }
-    
-    [Theory]
-    [ClassData(typeof(ModuleList))]
     public void Domain_ShouldNotHave_Dependency_ToOtherModules(string module)
     {
         var otherModules = ArchitectureExplorer.Modules.Except(module);
@@ -84,7 +51,7 @@ public class ModuleTests
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void GatewayAndMessageBus_ShouldHave_Dependency_ToApplicationContracts_Only(string module)
+    public void GatewayAndMessageBus_ShouldHave_Dependency_ToModuleInterface_Only(string module)
     {
         foreach (var anotherModule in Modules.Except(module))
         {
