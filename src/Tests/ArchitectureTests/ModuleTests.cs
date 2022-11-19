@@ -69,14 +69,14 @@ public class ModuleTests
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void Infrastructure_Except_Gateway_ShouldNotHaveDependency_ToOtherModules(string module)
+    public void Infrastructure_Except_GatewayAndMessageBus_ShouldNotHave_Dependency_ToOtherModules(string module)
     {
         var otherModules = ArchitectureExplorer.Modules.Except(module);
 
         Types().That()
             .Are(InfrastructureLayerOf(module))
             .And()
-            .AreNot(InfrastructureGatewayOf(module))
+            .AreNot(InfrastructureGatewayOrMessageBusOf(module))
             .Should()
             .NotDependOnAny(otherModules, true)
             .Check(ToDoListArchitecture);
@@ -84,32 +84,25 @@ public class ModuleTests
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void Gateway_ShouldHas_Dependency_ToApplicationContracts_Only(string module)
+    public void GatewayAndMessageBus_ShouldHave_Dependency_ToApplicationContracts_Only(string module)
     {
-        Types().That()
-            .Are(InfrastructureGatewayOf(module))
-            .Should()
-            .OnlyDependOn(ApplicationContracts)
-            .Check(ToDoListArchitecture);
+        foreach (var anotherModule in Modules.Except(module))
+        {
+            Types().That()
+                .Are(InfrastructureGatewayOrMessageBusOf(module))
+                .Should().NotDependOnAny(ModuleExceptPublicInterface(anotherModule))
+                .Check(ToDoListArchitecture);
+        }
     }
     
-    [Fact]
-    public void Api_ShouldNotHave_Dependencies_ToDomain()
+    [Theory]
+    [ClassData(typeof(ModuleList))]
+    public void Api_ShouldHave_Dependencies_ToModuleInterface_Only(string module)
     {
         Types().That()
             .Are(PresentationLayer)
             .Should()
-            .NotDependOnAny(DomainLayers)
-            .Check(ToDoListArchitecture);
-    }
-    
-    [Fact]
-    public void Api_CanHave_Dependencies_ToApplicationContracts_Only()
-    {
-        Types().That()
-            .Are(PresentationLayer)
-            .Should()
-            .OnlyDependOn(ApplicationContractsOrExclusions)
+            .NotDependOnAny(ModuleExceptPublicInterface(module))
             .Check(ToDoListArchitecture);
     }
 }
