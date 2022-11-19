@@ -15,6 +15,8 @@ public class Task : Entity, IAggregateRoot
     public DateTimeOffset RemindAt { get; private set; }
     public IReadOnlyList<Observer> Observers => _observers.AsReadOnly();
 
+    //public ToDoList.Notifications.Domain.PhoneNumber Phone { get; }
+
     private Task(Guid id, Guid authorId, Title title, DateOnly date, DateTimeOffset remindAt)
     {
         Id = id;
