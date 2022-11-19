@@ -33,7 +33,6 @@ public class ModuleList : IEnumerable<object[]>, IEnumerable<string>
                 "ToDoList.Notifications.Infrastructure.Database",
                 "ToDoList.Notifications.Infrastructure.MessageBus",
                 "ToDoList.Notifications.Infrastructure.Gateway",
-                "ToDoList.Notifications.Infrastructure.Telegram"
             }
         }
     };

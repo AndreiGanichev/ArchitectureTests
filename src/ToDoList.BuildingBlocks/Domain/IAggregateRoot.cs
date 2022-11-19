@@ -1,4 +1,4 @@
-namespace ToDoList.BuildingBlocks;
+namespace ToDoList.BuildingBlocks.Domain;
 
 public interface IAggregateRoot
 {

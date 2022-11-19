@@ -12,4 +12,13 @@
       <Compile Remove="Class1.cs" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="11.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Tasks\ToDoList.Tasks.Application.Contracts\Tasks.Application.Contracts.csproj" />
+      <ProjectReference Include="..\ToDoList.Notifications.Application.Contracts\Notifications.Application.Contracts.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -11,6 +11,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="MediatR" Version="11.0.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     </ItemGroup>
 
@@ -21,7 +22,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Infrastructure.Configuration\Notifications.Infrastructure.Configuration.csproj" />
       <ProjectReference Include="..\..\Modules\Tasks\ToDoList.Tasks.Application.Contracts\Tasks.Application.Contracts.csproj" />
+      <ProjectReference Include="..\..\Modules\Tasks\ToDoList.Tasks.Infrastructure.Configuration\Tasks.Infrastructure.Configuration.csproj" />
     </ItemGroup>
 
 </Project>
