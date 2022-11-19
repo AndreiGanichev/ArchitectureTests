@@ -1,5 +1,5 @@
 using ArchUnitNET.Domain;
-using ToDoList.BuildingBlocks;
+using ToDoList.BuildingBlocks.Domain;
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
 using static ToDoList.ArchitectureTests.Explorers.ArchitectureExplorer;
 
