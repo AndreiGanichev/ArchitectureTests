@@ -7,55 +7,68 @@ namespace ToDoList.ArchUnitNET.Modules;
 
 public class ModulesTests
 {
-    [Theory]
+      [Theory]
     [ClassData(typeof(ModuleList))]
-    public void DomainLayer_ShouldNotHave_Dependency_ToOtherModules(string module)
+    public void Domain_ShouldNotHave_Dependency_ToOtherModules(string module)
     {
         var otherModules = ArchitectureExplorer.Modules.Except(module);
 
         Types().That()
             .Are(DomainLayerOf(module))
             .Should()
-            .NotDependOnAny(otherModules)
+            .NotDependOnAny(otherModules, true)
             .Check(ToDoListArchitecture);
     }
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void ApplicationLayer_ShouldNotHave_Dependency_ToOtherModules(string module)
+    public void Application_ShouldNotHave_Dependency_ToOtherModules(string module)
     {
         var otherModules = ArchitectureExplorer.Modules.Except(module);
 
         Types().That()
             .Are(ApplicationLayerOf(module))
             .Should()
-            .NotDependOnAny(otherModules)
+            .NotDependOnAny(otherModules, true)
             .Check(ToDoListArchitecture);
     }
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void InfrastructureLayer_Except_InfrastructureGateway_ShouldNotHaveDependency_ToOtherModules(string module)
+    public void Infrastructure_Except_GatewayAndMessageBus_ShouldNotHave_Dependency_ToOtherModules(string module)
     {
         var otherModules = ArchitectureExplorer.Modules.Except(module);
 
         Types().That()
             .Are(InfrastructureLayerOf(module))
             .And()
-            .AreNot(InfrastructureGatewayOf(module))
+            .AreNot(InfrastructureGatewayOrMessageBusOf(module))
             .Should()
-            .NotDependOnAny(otherModules)
-            .Evaluate(ToDoListArchitecture);
+            .NotDependOnAny(otherModules, true)
+            .Check(ToDoListArchitecture);
     }
 
     [Theory]
     [ClassData(typeof(ModuleList))]
-    public void InfrastructureGateway_ShouldHas_Dependency_ToApplicationContracts_Only(string module)
+    public void GatewayAndMessageBus_ShouldHave_Dependency_ToModuleInterface_Only(string module)
+    {
+        foreach (var anotherModule in ArchitectureExplorer.Modules.Except(module))
+        {
+            Types().That()
+                .Are(InfrastructureGatewayOrMessageBusOf(module))
+                .Should().NotDependOnAny(ModuleExceptPublicInterface(anotherModule))
+                .Check(ToDoListArchitecture);
+        }
+    }
+    
+    [Theory]
+    [ClassData(typeof(ModuleList))]
+    public void Api_ShouldHave_Dependencies_ToModuleInterface_Only(string module)
     {
         Types().That()
-            .Are(InfrastructureGatewayOf(module))
+            .Are(PresentationLayer)
             .Should()
-            .OnlyDependOn(ApplicationContractsOrExclusions)
+            .NotDependOnAny(ModuleExceptPublicInterface(module))
             .Check(ToDoListArchitecture);
     }
 }
