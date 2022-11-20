@@ -22,6 +22,7 @@
       <ProjectReference Include="..\..\Notifications\ToDoList.Notifications.Application\Notifications.Application.Internals.csproj" />
       <ProjectReference Include="..\ToDoList.Tasks.Application\Tasks.Application.Internals.csproj" />
       <ProjectReference Include="..\ToDoList.Tasks.Infrastructure.Database\Tasks.Infrastructure.Database.csproj" />
+      <ProjectReference Include="..\ToDoList.Tasks.Infrastructure.MesageBus\Tasks.Infrastructure.MessageBus.csproj" />
     </ItemGroup>
 
 </Project>
