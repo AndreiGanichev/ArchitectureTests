@@ -40,6 +40,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTests", "Tests\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications.Infrastructure.Gateway", "Modules\Notifications\Notifications.Infrastructure.Gateway\Notifications.Infrastructure.Gateway.csproj", "{670FAE1D-B25A-4D27-A871-35CBCF3BC4C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Infrastructure.MessageBus", "Modules\Tasks\ToDoList.Tasks.Infrastructure.MesageBus\Tasks.Infrastructure.MessageBus.csproj", "{F75D8280-A260-4055-A114-051ABF609600}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,7 @@ Global
 		{2CC1F10F-62DA-4037-8476-F6FD22A2D868} = {47C59209-98F9-41B2-A1C3-E3CB2DDD6E25}
 		{FEEB749C-1A86-492E-B7C1-937093F428B2} = {72F72E13-08F1-4389-9EBB-C4DFD045CCEC}
 		{670FAE1D-B25A-4D27-A871-35CBCF3BC4C6} = {ADE58924-5868-4A0D-842A-11B41AED1C08}
+		{F75D8280-A260-4055-A114-051ABF609600} = {6042B4F0-8B37-4F5C-83F8-0B2D4CB0C079}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C266F51A-1821-4976-9B60-EF9FFA487B45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -124,5 +127,9 @@ Global
 		{670FAE1D-B25A-4D27-A871-35CBCF3BC4C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{670FAE1D-B25A-4D27-A871-35CBCF3BC4C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{670FAE1D-B25A-4D27-A871-35CBCF3BC4C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F75D8280-A260-4055-A114-051ABF609600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F75D8280-A260-4055-A114-051ABF609600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F75D8280-A260-4055-A114-051ABF609600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F75D8280-A260-4055-A114-051ABF609600}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

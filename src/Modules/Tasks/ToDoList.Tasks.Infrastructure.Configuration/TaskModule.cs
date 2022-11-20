@@ -12,5 +12,6 @@ public static class TaskModule
     {
         ServiceRegistrar.AddMediatRClasses(services, new[] {typeof(ITaskRepository).Assembly}, mediatrConfig);
         services.AddSingleton<ITaskRepository, TaskRepository>();
+        services.AddSingleton<IMessageBus, MessageBus.MessageBus>();
     }
 }
