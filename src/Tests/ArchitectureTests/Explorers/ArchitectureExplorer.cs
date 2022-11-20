@@ -88,9 +88,6 @@ public static class ArchitectureExplorer
             System.Reflection.Assembly.Load("ToDoList.Tasks.Infrastructure.Database"),
             System.Reflection.Assembly.Load("ToDoList.Tasks.Infrastructure.MessageBus"),
             // Api
-            System.Reflection.Assembly.Load("ToDoList.Api"),
-            typeof(AuthorizeAttribute).Assembly,
-            typeof(HttpMethodAttribute).Assembly,
-            typeof(IActionResult).Assembly)
+            System.Reflection.Assembly.Load("ToDoList.Api"))
         .Build();
 }
