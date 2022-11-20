@@ -27,6 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\Api\ToDoList.Api\Api.csproj" />
       <ProjectReference Include="..\..\Modules\Notifications\Notifications.Infrastructure.Gateway\Notifications.Infrastructure.Gateway.csproj" />
       <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Application.Contracts\Notifications.Application.Contracts.csproj" />
       <ProjectReference Include="..\..\Modules\Notifications\ToDoList.Notifications.Application\Notifications.Application.Internals.csproj" />
