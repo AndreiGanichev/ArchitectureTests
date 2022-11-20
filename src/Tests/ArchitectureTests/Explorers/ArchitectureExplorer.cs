@@ -72,22 +72,21 @@ public static class ArchitectureExplorer
     #endregion
 
     public static readonly Architecture ToDoListArchitecture = new ArchLoader().LoadAssemblies(
-            // Notifications module
-            System.Reflection.Assembly.Load("ToDoList.Notifications.Domain"),
-            System.Reflection.Assembly.Load("ToDoList.Notifications.Application.Internals"),
-            System.Reflection.Assembly.Load("ToDoList.Notifications.Application.Contracts"),
-            System.Reflection.Assembly.Load("ToDoList.Notifications.Infrastructure.Configuration"),
-            System.Reflection.Assembly.Load("ToDoList.Notifications.Infrastructure.Database"),
-            System.Reflection.Assembly.Load("ToDoList.Notifications.Infrastructure.MessageBus"),
-            System.Reflection.Assembly.Load("ToDoList.Notifications.Infrastructure.Gateway"),
             // Tasks module
-            System.Reflection.Assembly.Load("ToDoList.Tasks.Domain"),
-            System.Reflection.Assembly.Load("ToDoList.Tasks.Application.Internals"),
-            System.Reflection.Assembly.Load("ToDoList.Tasks.Application.Contracts"),
-            System.Reflection.Assembly.Load("ToDoList.Tasks.Infrastructure.Configuration"),
-            System.Reflection.Assembly.Load("ToDoList.Tasks.Infrastructure.Database"),
-            System.Reflection.Assembly.Load("ToDoList.Tasks.Infrastructure.MessageBus"),
+            typeof(Tasks.Domain.Task).Assembly,
+            typeof(Tasks.Application.Contracts.AddTask.AddTaskCommand).Assembly,
+            typeof(Tasks.Application.Internals.Interfaces.ITaskRepository).Assembly,
+            typeof(Tasks.Infrastructure.Configuration.TaskModule).Assembly,
+            typeof(Tasks.Infrastructure.Database.TaskRepository).Assembly,
+            // Notifications module
+            typeof(Notifications.Domain.Notification).Assembly,
+            typeof(Notifications.Application.Contracts.AddNotificationCommand).Assembly,
+            typeof(Notifications.Application.Internals.Interfaces.IAddresseRepository).Assembly,
+            typeof(Notifications.Infrastructure.Configuration.NotificationModule).Assembly,
+            typeof(Notifications.Infrastructure.Database.NotificationRepository).Assembly,
+            typeof(Notifications.Infrastructure.MessageBus.TaskCreatedIntegrationEventHandler).Assembly,
+            typeof(Notifications.Infrastructure.Gateway.UserGateway).Assembly,
             // Api
-            System.Reflection.Assembly.Load("ToDoList.Api"))
+            typeof(Api.Tasks.TasksController).Assembly)
         .Build();
 }
